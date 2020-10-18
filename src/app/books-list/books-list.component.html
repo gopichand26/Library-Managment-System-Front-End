@@ -1,0 +1,44 @@
+<div class="col-md-6">
+    <blockquote class="blockquote text-center">
+      <p class="mb-0"> Here is the Available Books</p>
+      <footer class="blockquote-footer">Done by  <cite title="Source Title">K GANGADHAR</cite></footer>
+
+      
+     
+    </blockquote>
+      
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          
+          <th class="hidden">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Publisher</th>
+          <th scope="col">Floor_No</th>
+          <th scope="col">Shelf_No</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+        <tbody>
+             <tr *ngFor="let book of books">
+                <td class="hidden">{{book.title}}</td>
+                <td class="hidden">{{book.author}}</td>
+                <td class="hidden">{{book.genre}}</td>
+                <td class="hidden">{{book.publisher}}</td>
+                <td class="hidden">{{book.floor_no}}</td>
+                <td class="hidden">{{book.shelf_no}}</td>
+                <td><button class="btn btn-secondary" style="margin: 5px" (click)="updateBook(book.title)">Update</button></td>
+             </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-secondary" style="margin: 5px" (click)="addBook()">Add New Book</button>
+      </div>
+
+      <nav class="navbar bg-light">
+        <a class="btn btn-danger" style="width:100px" href="">Log out</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>

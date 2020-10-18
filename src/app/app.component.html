@@ -1,14 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
-    <a class="nav-link"  routerLink="/home-page">Library</a>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+     
+        <a class="nav-link" class="nav-item active" class="navbar-nav ml-auto" routerLink="/home-page">Library
+          <span class="sr-only">(current)</span>
+        </a>
+      
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link"  routerLink="/home-page">HOME
-                <span class="sr-only">(current)</span>
               </a>
         </li>
         
@@ -16,7 +20,7 @@
           <a class="nav-link"   routerLink="/list-user">Members List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="/daily-register">Daily Register</a>
+          <a class="nav-link"  routerLink="/register">Daily Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  routerLink="/search">Search</a>

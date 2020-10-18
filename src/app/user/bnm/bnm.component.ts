@@ -25,7 +25,7 @@ export class BnmComponent implements OnInit {
   }
 
   books(): void {
-    this.router.navigate(['book']);
+    this.router.navigate(['books']);
   };
 
   Newspapers(): void {

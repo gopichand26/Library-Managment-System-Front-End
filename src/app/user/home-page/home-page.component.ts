@@ -31,7 +31,7 @@ export class HomePageComponent implements OnInit {
   };
 
   dailyRegister(): void {
-    this.router.navigate(['daily-register']);
+    this.router.navigate(['register']);
   };
 
   search(): void {
