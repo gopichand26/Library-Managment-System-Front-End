@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import {routing} from "./app-routing.module";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ApiService} from "./service/api.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./core/interceptor";
@@ -16,6 +16,12 @@ import { HomePageComponent } from './user/home-page/home-page.component';
 import { DailyRegisterComponent } from './user/daily-register/daily-register.component';
 import { SearchComponent } from './user/search/search.component';
 import { BnmComponent } from './user/bnm/bnm.component';
+import { AddNewspaperComponent } from './add-newspaper/add-newspaper.component';
+import { NewspaperListComponent } from './newspaper-list/newspaper-list.component';
+import { UpdateNewspaperComponent } from './update-newspaper/update-newspaper.component';
+import { MagazineListComponent } from './magazine-list/magazine-list.component';
+import { AddMagazineComponent } from './add-magazine/add-magazine.component';
+import { UpdateMagazineComponent } from './update-magazine/update-magazine.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +33,20 @@ import { BnmComponent } from './user/bnm/bnm.component';
     HomePageComponent,
     DailyRegisterComponent,
     SearchComponent,
-    BnmComponent
+    BnmComponent,
+    AddNewspaperComponent,
+    NewspaperListComponent,
+    UpdateNewspaperComponent,
+    MagazineListComponent,
+    AddMagazineComponent,
+    UpdateMagazineComponent
   ],
   imports: [
     BrowserModule,
     routing,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ApiService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

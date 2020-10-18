@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {ApiService} from "../../service/api.service";
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-bnm',
@@ -6,10 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bnm.component.css']
 })
 export class BnmComponent implements OnInit {
+  users: User[];
 
-  constructor() { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if(!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
+    this.apiService.getUsers()
+      .subscribe( data => {
+        this.users = data.result;
+      });
   }
+
+  books(): void {
+    this.router.navigate(['book']);
+  };
+
+  Newspapers(): void {
+    this.router.navigate(['newspaper']);
+  };
+
+  Magazines(): void {
+    this.router.navigate(['magazine']);
+  };
+
+
 
 }

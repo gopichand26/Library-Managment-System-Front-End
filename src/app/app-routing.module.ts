@@ -7,6 +7,12 @@ import { HomePageComponent } from './user/home-page/home-page.component';
 import { DailyRegisterComponent } from './user/daily-register/daily-register.component';
 import { SearchComponent } from './user/search/search.component';
 import { BnmComponent } from './user/bnm/bnm.component';
+import { NewspaperListComponent } from './newspaper-list/newspaper-list.component';
+import { AddNewspaperComponent } from './add-newspaper/add-newspaper.component';
+import { UpdateNewspaperComponent } from './update-newspaper/update-newspaper.component';
+import { MagazineListComponent } from './magazine-list/magazine-list.component';
+import { AddMagazineComponent } from './add-magazine/add-magazine.component';
+import { UpdateMagazineComponent } from './update-magazine/update-magazine.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +23,14 @@ const routes: Routes = [
   { path: 'daily-register', component: DailyRegisterComponent},
   { path: 'search', component: SearchComponent},
   { path: 'bnm', component: BnmComponent},
+  { path: 'newspaper', component: NewspaperListComponent },
+  { path: 'add', component: AddNewspaperComponent },
+  { path: 'update/:name', component: UpdateNewspaperComponent },
+  { path: 'magazine', component: MagazineListComponent },
+  { path: 'add-magazine', component: AddMagazineComponent },
+  { path: 'update-magazine/:name', component: UpdateMagazineComponent },
   {path : '', component : LoginComponent}
+
 ];
 
 export const routing = RouterModule.forRoot(routes);

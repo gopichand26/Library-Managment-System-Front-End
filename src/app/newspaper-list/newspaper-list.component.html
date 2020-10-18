@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h2>Newspaper List</h2>
+  
+  <!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    
+      <a class="nav-item nav-link" routerLink="/newspaper">Newspaper List</a>
+      <a class="nav-item nav-link" routerLink="/add">Add Newspaper</a>
+  </div>
+</nav>    
+    
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>FloorNo</th>
+            <th>ShelfNo</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let newspaper of newspapers | async">
+            <td>{{newspaper.id}}</td>
+            <td>{{newspaper.floorno}}</td>
+            <td>{{newspaper.shelfno}}</td>
+            <td>{{newspaper.name}}</td>
+            <td>{{newspaper.date | date:'yyyy-MM-dd'}}</td>
+            <td>
+                <button (click)="updateNewspaper(newspaper.name)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
