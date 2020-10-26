@@ -9,7 +9,8 @@ import { BooksService } from '../books.service';
   styleUrls: ['./update-books.component.css']
 })
 export class UpdateBooksComponent implements OnInit {
-  book : Books = {
+  book : any;
+  Books = {
    
     title:'',
     author:'',
@@ -38,9 +39,10 @@ export class UpdateBooksComponent implements OnInit {
     let response = this.booksService.updateBook(this.book);
     response.subscribe(data => {
       this.message = data
-      
+      alert("Book Updated successfully");
+      this.router.navigate(['/books']);
     });
    
-  //  this.router.navigate(['/books']);
+   
   }
 }

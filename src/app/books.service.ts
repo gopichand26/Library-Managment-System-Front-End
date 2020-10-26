@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Books } from './Books.model';
-import {tap} from 'rxjs/operators'
+import {catchError, tap} from 'rxjs/operators'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,48 +13,52 @@ const httpOptions = {
 })
 export class BooksService {
 
-  API_URL:string = "http://localhost:8080/";
+  API_URL:string = "http://localhost:8080/api/";
   
 
-  constructor(private http : HttpClient) {  }
+  constructor(private httpClient : HttpClient) {  }
 
+ 
+
+  
+
+ 
+  getBooks(): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}books`);
+  }
   private _refreshNeeded$ = new Subject<void>();
 
   get refreshNeeded$(){
     return this._refreshNeeded$;
   }
 
-  // public addBooks(books){
-  //   return this.http.post(this.API_URL+"books",books,{responseType: "text" as "json"})
-  //   .pipe(
-  //     tap(()=>{
-  //       this._refreshNeeded$.next();
-  //     })
-  //   );
-  // }
-
-  public getBooks(){
-    return this.http.get<Books[]>(this.API_URL+"books");
-    
-  }
+  
   
 
-  public searchBook(title): Observable<any>{
-    return this.http.get(this.API_URL+"books/"+title);
-
+  addBook(book: Object): Observable<Object>{
+    return this.httpClient.post(`${this.API_URL}book`, book);
   }
 
   
-  public addBook(book) {
-    return this.http.post<Books>(this.API_URL+"book", book);
+ 
+  updateBook(book: Object): Observable<Object>{
+    return this.httpClient.put(`${this.API_URL}book`, book);
   }
 
-  public updateBook(book : Object ) : Observable<Object>{
-    return this.http.put(this.API_URL+"book",book)
-    .pipe(
-      tap(()=>{
-        this._refreshNeeded$.next();
-      })
-    );;
+  searchBookbytitlteauthor(title: string,author: string): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}books/${title}/${author}`);
   }
+
+  searchBook(title: string): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}book/${title}`);
+  }
+
+  searchBookbyauthor(author: string): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}books/${author}`);
+  }
+
+  public getbs(type :string, name :string) {
+    return this.httpClient.get<Books[]>(this.API_URL+'book/'+type+'/'+name);
+  }
+
 }

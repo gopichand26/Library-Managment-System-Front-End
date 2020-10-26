@@ -1,68 +1,176 @@
-<div class="col-md-6 user-container" style="width: auto; margin-left: auto; margin-right: auto;">
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h3 class="card-title">List of admins</h3>
-          <br />
-          <button class="btn btn-success" style="grid-auto-flow: row;" (click)="listMembers()"> click me to see list of Members</button><br><br>
-      </div>
-    </div>
-
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h3 class="card-title">Daily Register to track visitors</h3>
-          <br />
-          <button class="btn btn-success" style="grid-auto-flow: row;" (click)="dailyRegister()">click me to see Daily Register</button><br><br>
-      </div>
-    </div>
-
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h3 class="card-title">Search to find books, Newspapers and Magazines</h3>
-        <br />
-          <button class="btn btn-success" style="grid-auto-flow: row;" (click)="search()">click me to Search</button><br><br>
-      </div>
-    </div>
-
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h3 class="card-title">Add and update books, Newspapers and Magazines</h3>
-        <br />
-          <button class="btn btn-success" style="grid-auto-flow: row;" (click)="bnm()">Books, Newspapers and Magazines</button><br><br>
-      </div>
-    </div>
-  
-
-  
-    <div class="card offer-card shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h3 class="card-title">About Us</h3>
-        <div class="row">
-          <div class="devCard col-md-3" style="padding: 5px;">
-           <br>
-            <h6>P.Gopichandh</h6>
-          </div>
-          <div class="devCard col-md-3" style="padding: 5px;">
-            <br>
-             <h6>k.gangadhar</h6>
-           </div>
-           <div class="devCard col-md-3" style="padding: 5px;">
-            <br>
-             <h6>R.Bhavana</h6>
-           </div>
-           <div class="devCard col-md-3" style="padding: 5px;">
-            <br>
-             <h6>G.Pavan Kumar</h6>
-           </div>
-          
+<app-navbar></app-navbar>
+<main>
+  <div class="position-relative">
+    <section class="section section-lg section-shaped pb-250 bg-dark">
+      <div class="container py-lg-md d-flex ">
+        <div class="col px-0">
+          <div class="row">
+            <div class="col-lg-11">
+              <h1 class="display-3  text-white">A beautiful Libray Management System
+                <span>This Library contains books, newspapers and magazines</span>
+              </h1>
+              <p class="lead  text-white">The Library Management system comes with operations like add, update and search to help you get started faster. You can select the modules from below and you're good to go.</p>
+              <div class="btn-wrapper">
+                <a class="dropdown-item" routerLink="/search" class="btn btn-info btn-icon mb-3 mb-sm-0 bg-dark">
+                  <span class="btn-inner--icon"><i class="ni ni-zoom-split-in"></i></span>
+                  <span class="btn-inner--text">Search Module</span>
+                </a>
+                <a routerLink="/library" class="btn btn-info btn-icon mb-3 mb-sm-0 bg-dark">
+                  <span class="btn-inner--icon"><i class="ni ni-building"></i></span>
+                  
+                  <span class="btn-inner--text">Library Design</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+  </div>
+  <section class="section section-lg pt-lg-0 mt--200 bg-dark">
+    <div class="container ">
+      <div class="row justify-content-center ">
+        <div class="col-lg-12 ">
+          <div class="row row-grid ">
+            <div class="col-lg-4 ">
+              <div class="card card-lift--hover shadow border-0 bg-dark">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                    <i class="ni ni-single-02"></i>
+                  </div>
+                  <h6 class="text-primary text-uppercase">Members List</h6>
+                  <p class="description mt-3">Know the details of who have the access to this system including with you.</p>
+                  <div>
+                    <span class="badge badge-pill badge-primary bg-dark">add</span>
+                    <span class="badge badge-pill badge-primary bg-dark">update</span>
+                    <span class="badge badge-pill badge-primary bg-dark">delete</span>
+                  </div>
+                  <a href="/list-user" class="btn btn-primary mt-4 bg-dark">Go</a>
+                </div>
+              </div>  
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-lift--hover shadow border-0 bg-dark">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+                    <i class="ni ni-collection bg-dark"></i>
+                  </div>
+                  <h6 class="text-success text-uppercase">Daily Register</h6>
+                  <p class="description mt-3">Know the details of a visitor with visitor Id, visitor name, In timing and out timing.</p>
+                  <div>
+                    <span class="badge badge-pill badge-success bg-dark">Visitors</span>
+                    <span class="badge badge-pill badge-success bg-dark">In-time</span>
+                    <span class="badge badge-pill badge-success bg-dark">Out-time</span>
+                  </div>
+                  <a href="/register" class="btn btn-success mt-4 bg-dark">Go</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-lift--hover shadow border-0 bg-dark">
+                <div class="card-body py-5">
+                  <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
+                    <i class="ni ni-books"></i>
+                  </div>
+                  <h6 class="text-warning text-uppercase">Books-Newspapers-Magazines</h6>
+                  <p class="description mt-3">To add, update and for searching the books, magazines and newspapers.</p>
+                  <div>
+                    <span class="badge badge-pill badge-warning bg-dark">Add</span>
+                    <span class="badge badge-pill badge-warning bg-dark">Update</span>
+                    <span class="badge badge-pill badge-warning bg-dark">Newspapers</span>
+                  </div>
+                  <a href="/bnm" class="btn btn-warning mt-4 bg-dark">Go</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section bg-secondary bg-dark">
+    <div class="container">
+      <div class="row row-grid align-items-center">
+        <div class="col-md-5">
+          <div class="card bg-default shadow border-0">
+            <img src="./assets/img/theme/library_card.jpg" class="card-img-top">
+            <blockquote class="card-blockquote">
+              <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
+                <polygon points="0,52 583,95 0,95" class="fill-default" />
+                <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
+              </svg>
+              <h4 class="display-3 font-weight-bold text-white">Libray Management System</h4>
+              <p class="lead text-italic text-white"></p>
+            </blockquote>
+          </div>
+        </div>
+        <div class="col-md-6 text-white">
+          <div class="pl-md-5">
+            <div class="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle mb-5">
+              <i class="ni ni-settings"></i>
+            </div>
+            <h3 class="text-white">Our Features</h3>
+            <p class="lead">Management software for monitoring and controlling the transactions in a library.</p>
+            <p>The project “Library Management System” is developed in php, which mainly focuses on basic operations in a library like adding new books, and updating new information, searching books, Magazines and Newspapers.</p>
+            <p>Library management system is a typical management Information system (MIS), its development include the establishment and maintenance of back-end database and front-end application development aspects.</p>
+            <a href="javascript:void(0)" class="font-weight-bold text-warning mt-5"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <nav class="navbar bg-light">
-        <a class="btn btn-danger" style="width:100px" href="">Log out</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-</div>
+  <section class="section section-lg bg-dark">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-lg">
+        <div class="col-lg-8">
+          <h2 class="display-3 text-white">The amazing Team</h2>
+          <p class="lead text-muted"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+          <div class="px-4">
+            <div class="pt-4 text-center">
+              <h5 class="title">
+                <span class="d-block mb-1 text-white">Puttha Gopichandh</span>
+                <small class="h6 text-muted"></small>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+          <div class="px-4">
+            <div class="pt-4 text-center">
+              <h5 class="title">
+                <span class="d-block mb-1 text-white">Gangadhar Kamanaboyina</span>
+                <small class="h6 text-muted"></small>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+          <div class="px-4">
+            <div class="pt-4 text-center">
+              <h5 class="title">
+                <span class="d-block mb-1 text-white">Ravichandran Bhavana</span>
+                <small class="h6 text-muted"></small>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+          <div class="px-4">
+            <div class="pt-4 text-center">
+              <h5 class="title">
+                <span class="d-block mb-1 text-white">GANGURU PAVAN KUMAR</span>
+                <small class="h6 text-muted"></small>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 

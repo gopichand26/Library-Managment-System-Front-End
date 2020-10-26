@@ -3,7 +3,7 @@ export class Books{
     author : string ;
     genre : string ;
     publisher : string;
-    floor_no ? : number;
-    shelf_no ? : number;
+    floor_no  : number;
+    shelf_no  : number;
     
 }

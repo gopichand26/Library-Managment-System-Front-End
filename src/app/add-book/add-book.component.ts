@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Books } from '../Books.model';
 import { BooksService } from '../books.service';
@@ -10,6 +11,15 @@ import { BooksService } from '../books.service';
 })
 export class AddBookComponent {
   book : Books = new Books();
+  form = new FormGroup({
+     title : new FormControl('',Validators.required),
+     author : new FormControl('',Validators.required),
+     genre : new FormControl('',Validators.required),
+     publisher : new FormControl('',Validators.required),
+     floor_no : new FormControl('',Validators.required),
+     shelf_no : new FormControl('',Validators.required)
+  })
+  
   constructor(private router: Router, private booksService: BooksService) 
      { }
 
@@ -22,8 +32,10 @@ export class AddBookComponent {
       let response = this.booksService.addBook(this.book);
       response.subscribe(data => {
         alert("Book add successfully");
+        this.router.navigate(['/books']);
       });
-      this.router.navigate(['/books']);
+      
     };
 
+    
 }

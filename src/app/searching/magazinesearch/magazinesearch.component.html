@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="position-relative">
+  <section class="section section-dark section-shaped pb-250">
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white">Enter Magzine name :</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+    <div class="container">
+      <div class = "form">
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" class="form-control bg-dark" id="magname" [(ngModel)]="magname" name="magname"><br>
+      <div class="text-center">
+      <button type="button" class="btn btn-primary bg-dark" (click)="searchAllDate()">All Dates</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="container py-lg-md d-flex">
+        <h1 class="display-3  text-white">Enter Date :</h1>
+        <h2 style="margin: auto" class="text-white" > </h2>
+      </div>
+        <input type="date" class="form-control bg-dark" id="magdate" [(ngModel)]="magdate" name="magdate">
+      </div>
+      <div class="text-center">
+    <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+      </div>
+  </form>
+</div>
+    </div>
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white" *ngIf="showMagTab">Results</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+    <div *ngIf="showMagTab">
+        <table class="table table-striped text-white">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Floor_No</th>
+                    <th>Shelf_No</th>
+                </tr>
+                  <tr *ngFor="let mag of magazines">
+                  <td>{{mag.name}}</td>
+                  <td>{{mag.date}}</td>
+                  <td>{{mag.floorno}}</td>
+                  <td>{{mag.shelfno}}</td>
+            </thead>
+        </table>
+        
+    </div>
+  </section>
+</div>

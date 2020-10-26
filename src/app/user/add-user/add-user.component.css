@@ -1,0 +1,12 @@
+input.ng-invalid{
+    border-color: red;
+}
+
+input.ng-untouched{
+    border-color: #ced4da;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: blue;
+}

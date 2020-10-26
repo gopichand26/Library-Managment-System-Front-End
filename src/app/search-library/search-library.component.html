@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="position-relative">
+    <section class="section section-dark section-shaped pb-250">
+      <div class="container py-lg-md d-flex">
+        <h1 class="display-3  text-white ">Search The Floor</h1>
+      </div>
+      <div class="container">
+        <div class="text-white form">
+
+        <div class="form-group ">
+            <input type="text" placeholder="Enter Floor Number" class="form-control bg-dark" name="floor_no" [(ngModel)]="floor_no">
+        </div>
+        <div class="text-center ">
+            <button type="button" class="btn btn-info bg-dark" (click)="searchLibrary()">Search</button>
+        </div>
+    </div>
+    <div class="container py-lg-md d-flex">
+        <h2 class="display-3 text-white" *ngIf="showLibraryTable">Results</h2>
+    </div>
+</div>
+    <div *ngIf="showLibraryTable">
+        <table class="table table-striped text-white">
+
+            <thead >
+                <tr>
+                    <th>Floor_No</th>
+                    <th>No_Of_Shelfs</th>
+                    <th>No_Of_Books</th>
+                    <th>No_Of_Magazines</th>
+                    <th>No_Of_NewsPapers</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{library.floor_no}}</td>
+                    <td>{{library.no_shelfs}}</td>
+                    <td>{{library.no_books}}</td>
+                    <td>{{library.no_magazines}}</td>
+                    <td>{{library.no_newspapers}}</td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </section>
+</div>

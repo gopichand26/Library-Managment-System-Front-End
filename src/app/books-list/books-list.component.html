@@ -1,14 +1,42 @@
-<div class="col-md-6">
-    <blockquote class="blockquote text-center">
-      <p class="mb-0"> Here is the Available Books</p>
+<app-navbar></app-navbar>
+<section class="section section-dark section-shaped pb-250">
+<div class="container-fluid" >
+  <div class="col-md-offset-1">
+    <h2 class="text-center text-white">
+      Welcome to Books Library
       <footer class="blockquote-footer">Done by  <cite title="Source Title">K GANGADHAR</cite></footer>
+    </h2><br>
 
+    <img class="float-right" src="assets\img\Library.jpg" alt="Chania" width="1000" height="400">
+    
+  </div>
+  
+  <h2 class="left text-white" >Choose The Required Field</h2><br>
+
+  <br>
+  <a style="-ms-layout-grid-mode: 5px" routerLink="/add-Book"><button type="button" class="btn btn-danger bg-dark">Add Books</button></a> <br>
+  <br>
+  <a style="-ms-layout-grid-line:20px" routerLink="/search-Book"><button type="button" class="btn btn-warning bg-dark">Search Book</button></a>
+  
+  <br/>
+   <br/>
+ 
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="position-relative">
+  <div class="container py-lg-md d-flex">
+    <h1 class="display-3  text-white ">Here are the Available Books</h1>
+  </div>
+    
       
-     
-    </blockquote>
-      
-      <table class="table">
-        <thead class="thead-light">
+      <table  class="table table-striped text-white">
+        <thead>
         <tr>
           
           <th class="hidden">Title</th>
@@ -21,24 +49,17 @@
         </tr>
       </thead>
         <tbody>
-             <tr *ngFor="let book of books">
+             <tr *ngFor="let book of books | async" class="success">
                 <td class="hidden">{{book.title}}</td>
                 <td class="hidden">{{book.author}}</td>
                 <td class="hidden">{{book.genre}}</td>
                 <td class="hidden">{{book.publisher}}</td>
                 <td class="hidden">{{book.floor_no}}</td>
                 <td class="hidden">{{book.shelf_no}}</td>
-                <td><button class="btn btn-secondary" style="margin: 5px" (click)="updateBook(book.title)">Update</button></td>
+                <td><button class="btn btn-primary bg-dark"  (click)="updateBook(book.title)">Update</button></td>
              </tr>
         </tbody>
       </table>
-
-      <button class="btn btn-secondary" style="margin: 5px" (click)="addBook()">Add New Book</button>
-      </div>
-
-      <nav class="navbar bg-light">
-        <a class="btn btn-danger" style="width:100px" href="">Log out</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
+</div>   
+</section>
+      <!-- <button type="button" class="btn btn-primary">Bluish - btn-primary</button> -->

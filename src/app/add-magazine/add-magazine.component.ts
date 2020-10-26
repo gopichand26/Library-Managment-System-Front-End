@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Magazine } from '../magazine';
 import { MagazineService } from '../magazine.service';
@@ -8,39 +9,28 @@ import { MagazineService } from '../magazine.service';
   templateUrl: './add-magazine.component.html',
   styleUrls: ['./add-magazine.component.css']
 })
-export class AddMagazineComponent implements OnInit {
+export class AddMagazineComponent  {
 
-  magazine: Magazine = new Magazine();
-  submitted = false;
+  form = new FormGroup({
+    id : new FormControl('',Validators.required),
+    floorno : new FormControl('',Validators.required),
+    shelfno : new FormControl('',Validators.required),
+    name : new FormControl('',Validators.required),
+    date : new FormControl('',Validators.required)
+ })
 
-  constructor(private magazineService: MagazineService,
-    private router: Router) { }
+  magazine : Magazine = new Magazine();
+  constructor(private router: Router, private magazineService: MagazineService) 
+     { }
 
-  ngOnInit() {
-  }
+     addMagazine(): void {
+      console.log(this.magazine)
+      let response = this.magazineService.addMagazine(this.magazine);
+      response.subscribe(data => {
+        alert("Magazine add successfully");
+        this.router.navigate(['/magazines']);
+      });
+      
+    };
 
-  newMagazine(): void {
-    this.submitted = false;
-    this.magazine = new Magazine();
-  }
-
-  save() {
-    this.magazineService
-    .addMagazine(this.magazine).subscribe(data => console.log(data),
-     error => console.log(error)
-    );
-    
-      this.magazine = new Magazine();
-      this.gotoList();
-    
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
-  }
-
-  gotoList() {
-    this.router.navigate(['/magazine']);
-  }
 }

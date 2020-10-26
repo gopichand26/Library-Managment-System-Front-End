@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="position-relative">
+    <section class="section section-dark section-shaped pb-250">
+      <div class="container py-lg-md d-flex">
+        <h1 class="display-3  text-white ">Add Floor</h1>
+      </div>
+        <div class="container">
+  <div class = "text-white form">
+                <form name="form" [formGroup] = "form">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="floor_no">Floor_No</label>
+                            <input class="form-control bg-dark" type="text" [(ngModel)]="library.floor_no" name="floor_no" id="txt" required placeholder="Enter Floor Number" 
+                            formControlName = "floor_no" [ngClass]="{'is-invalid':form.get('floor_no').touched && form.get('floor_no').invalid}"/>
+                            <div class="invalid-feedback">
+                                <div>Floor Number Is Mandatory</div>
+  
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="no_shelfs">No_Of_Shelfs</label>
+                            <input class="form-control bg-dark" type="text" [(ngModel)]="library.no_shelfs" name="no_shelfs" id="txt" required placeholder="Enter Number Of Shelfs" 
+                            formControlName = "no_shelfs" [ngClass]="{'is-invalid':form.get('no_shelfs').touched && form.get('no_shelfs').invalid}"/>
+                            <div class="invalid-feedback">
+                                <div>Please Add Number Of Shelfs</div>
+  
+                            </div>
+                            
+                        </div>
+  
+                        <div class="form-group ">
+                          <label for="no_books">No_Of_Books</label>
+                          <input class="form-control bg-dark "  type="text " [(ngModel)]="library.no_books" name="no_books" id="txt " required placeholder="Enter Number Of Books " 
+                          formControlName = "no_books" [ngClass]="{'is-invalid':form.get('no_books').touched && form.get('no_books').invalid}"/>
+                            <div class="invalid-feedback">
+                                <div>Please Add Total Number of Books</div>
+  
+                            </div>
+                      </div>
+  
+                      <div class="form-group">
+                          <label for="no_magazines">No_Of_Magazines</label>
+                          <input class="form-control bg-dark" type="text" [(ngModel)]="library.no_magazines" name="publisher" id="txt" required placeholder="Enter Number of Magazines"
+                          formControlName = "no_magazines" [ngClass]="{'is-invalid':form.get('no_magazines').touched && form.get('no_magazines').invalid}"/>
+                            <div class="invalid-feedback">
+                                <div>Please Add Total Number of Magazines</div>
+  
+                            </div>
+                      </div>
+  
+                      <div class="form-group">
+                          <label for="no_newspapers">No_Of_Newspapers</label>
+                          <input class="form-control bg-dark" type="text" [(ngModel)]="library.no_newspapers" name="no_newspapers" id="txt" required placeholder="Enter Number Of Newspapers" 
+                          formControlName = "no_newspapers" [ngClass]="{'is-invalid':form.get('no_newspapers').touched && form.get('no_newspapers').invalid}"/>
+                            <div class="invalid-feedback">
+                                <div>Please Add Total Number of Newspapers</div>
+  
+                            </div>
+                          
+                      </div>
+  
+                     
+                    
+    
+                       <div class="text-center">
+                        <button type="submit" class="btn btn-success bg-dark" (click)="addLibrary()">Add</button>
+                        </div> 
+                    </fieldset>
+                </form>
+  </div>
+        </div>
+    </section>
+</div>

@@ -11,6 +11,8 @@ import { User } from 'src/app/model/user.model';
 })
 export class HomePageComponent implements OnInit {
 
+  focus: any;
+  focus1: any;
   users: User[];
 
   constructor(private router: Router, private apiService: ApiService) { }

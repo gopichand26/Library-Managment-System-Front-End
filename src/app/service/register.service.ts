@@ -9,18 +9,22 @@ import { Register } from '../model/register.model';
   providedIn: 'root'
 })
 export class RegisterService {
-  public API_URL="http://localhost:8080/"
+  public API_URL="http://localhost:8080/register"
   constructor(private http : HttpClient) { }
 
  getregister() : Observable<ApiResponse>{
-   return this.http.get<ApiResponse>(this.API_URL+'register')
+   return this.http.get<ApiResponse>(this.API_URL)
  }
 
- editvisitor(id:number,outtime:string){
-   return this.http.put<ApiResponse>(this.API_URL+'register/'+id+'/'+outtime,{});
+ editvisitor(id:number,register:Register):Observable<any>{
+   return this.http.put(this.API_URL+'/'+id,register);
  }
 
  addvisitor(register:Register){
-   return this.http.post<ApiResponse>(this.API_URL+'register',register)
+   return this.http.post<ApiResponse>(this.API_URL,register)
  }
+ 
+ getVisitor(id: number): Observable<any> {
+  return this.http.get(`${this.API_URL}/getvisitor/${id}`);
+}
 }

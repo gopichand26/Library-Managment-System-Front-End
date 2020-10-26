@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Newspaper } from '../newspaper';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Newspaper } from '../newspaper';
 import { NewspaperService } from '../newspaper.service';
 
 @Component({
@@ -8,41 +9,27 @@ import { NewspaperService } from '../newspaper.service';
   templateUrl: './add-newspaper.component.html',
   styleUrls: ['./add-newspaper.component.css']
 })
-export class AddNewspaperComponent implements OnInit {
+export class AddNewspaperComponent  {
+  form = new FormGroup({
+    id : new FormControl('',Validators.required),
+    floorno : new FormControl('',Validators.required),
+    shelfno : new FormControl('',Validators.required),
+    name : new FormControl('',Validators.required),
+    date : new FormControl('',Validators.required)
+ })
 
-  newspaper: Newspaper = new Newspaper();
-  submitted = false;
+  newspaper : Newspaper = new Newspaper();
+  constructor(private router: Router, private newspaperService: NewspaperService) 
+     { }
 
-  constructor(private newspaperService: NewspaperService,
-    private router: Router) { }
+     addNewspaper(): void {
+      console.log(this.newspaper)
+      let response = this.newspaperService.addNewspaper(this.newspaper);
+      response.subscribe(data => {
+        alert("Newspaper add successfully");
+        this.router.navigate(['/newspapers']); 
+      });
+     
+    };
 
-  ngOnInit() {
-  }
-
-  newNewspaper(): void {
-    this.submitted = false;
-    this.newspaper = new Newspaper();
-  }
-
-  save() {
-    this.newspaperService
-    .addNewspaper(this.newspaper).subscribe(data => console.log(data),
-     error => console.log(error)
-    );
-    
-      this.newspaper = new Newspaper();
-      this.gotoList();
-    
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
-  }
-
-  gotoList() {
-    this.router.navigate(['/newspaper']);
-  }
 }
-
-

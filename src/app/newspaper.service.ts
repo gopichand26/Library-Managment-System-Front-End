@@ -1,32 +1,50 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  
-import { Observable } from 'rxjs';  
+import { Observable, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewspaperService {
-  private baseUrl = 'http://localhost:8080/api/newspapers'; 
-  constructor(private http:HttpClient) { }
 
-  getNewspaper(name: String): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${name}`);
+  API_URL:String = "http://localhost:8080/api/";
+ 
+
+  constructor(private httpClient : HttpClient) {  }
+
+ 
+  getNewspaper(): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}newspapers`);
+  }
+  private _refreshNeeded$ = new Subject<void>();
+
+  get refreshNeeded$(){
+    return this._refreshNeeded$;
   }
 
-  addNewspaper(newspaper: object): Observable<object> {  
-    return this.http.post(`${this.baseUrl}`, newspaper);  
-  } 
-   
-  updateNewspaper(name: String, value: any): Observable<Object> {  
-    return this.http.put(`${this.baseUrl}/${name}`, value);  
-  } 
-  
-  getNewspaperList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+
+  addNewspaper(newspaper: Object): Observable<Object>{
+    return this.httpClient.post(`${this.API_URL}newspaper`, newspaper);
   }
 
-  findByName(name: String) {
-    return this.http.get(`${this.baseUrl}?name=${name}`);
+
+  updateNewspaper(newspaper: Object): Observable<Object>{
+    return this.httpClient.put(`${this.API_URL}newspaper`, newspaper);
   }
 
-}
+  searchNewspaperbynamedate(name: String, date: Date): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}newspaper/${name}/${date}`);
+  }
+
+  searchNewspaper(name: String): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}newspaper/${name}`);
+  }
+
+  searchNewspaperbydate(date: Date): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}newspaper/${date}`);
+  }
+}  

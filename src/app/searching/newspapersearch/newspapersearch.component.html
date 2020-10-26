@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="position-relative">
+  <section class="section section-dark section-shaped pb-250">
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white">Enter Newspaper name :</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+    <div class="container">
+      <div class = "form">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" class="form-control bg-dark" id="newsname" [(ngModel)]="newsname" name="newsname"><br>
+          <div class="text-center">
+          <button type="button" class="btn btn-primary bg-dark" (click)="searchAllDate()">All Dates</button>
+        </div>
+      </div>
+        <div class="form-group">
+          <div class="container py-lg-md d-flex">
+            <h1 class="display-3  text-white">Enter Date :</h1>
+            <h2 style="margin: auto" class="text-white" > </h2>
+          </div>
+            <input type="date" class="form-control bg-dark" id="newsdate" [(ngModel)]="newsdate" name="newsdate">
+          </div>
+          <div class="text-center">
+        <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+      </div>
+      </form>
+    </div>
+    </div>
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white" *ngIf="showNewsTab">Results</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+        <div *ngIf="showNewsTab" >
+            <table class="table table-striped text-white">
+    
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Floor_No</th>
+                        <th>Shelf_No</th>
+                    </tr>
+                      <tr *ngFor="let newspaper of newspapers">
+                      <td>{{newspaper.name}}</td>
+                      <td>{{newspaper.date}}</td>
+                      <td>{{newspaper.floorno}}</td>
+                      <td>{{newspaper.shelfno}}</td>
+                </thead>
+            </table>
+            
+        </div>
+  </section>
+</div>
+    

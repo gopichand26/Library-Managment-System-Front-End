@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Magazine } from '../magazine';
 import { MagazineService } from '../magazine.service';
 
 @Component({
@@ -10,41 +9,40 @@ import { MagazineService } from '../magazine.service';
 })
 export class UpdateMagazineComponent implements OnInit {
 
-  name:String;
-  magazine:Magazine;
-  submitted=false;
+  magazine : any;
+  Magazine = {
+   
+    id: 0,
+    floorno: 0,
+    shelfno:'',
+    name:'',
+    date : '',
+  };
+      
+  message : any;
+  name : String;
+  constructor(private router: Router, private route: ActivatedRoute, private magazineService: MagazineService) { }
 
-  constructor(private route:ActivatedRoute,private router:Router,
-    private magazineService:MagazineService) { }
-
-  ngOnInit()  {
-    this.magazine=new Magazine();
-
-    this.name=this.route.snapshot.params['name'];
-    this.magazineService.getMagazine(this.name)
-    .subscribe(data => {
-      console.log(data)
+  ngOnInit(): void {
+    this.name = this.route.snapshot.params['name'];
+    console.log(this.name);
+    let response =  this.magazineService.searchMagazine(this.name);
+    response.subscribe(data => {
       this.magazine = data;
-    }, error => console.log(error));
-}
-
-updateMagazine() {
-  this.magazineService.updateMagazine(this.name, this.magazine)
-    .subscribe(data => {
-      console.log(data);
-      this.magazine = new Magazine();
-      this.gotoList();
-    }, error => console.log(error));
-}
-
-
-onSubmit() {
-  this.updateMagazine();
-  this.submitted=true;
-}
-
-gotoList() {
-  this.router.navigate(['/magazine']);
-}
+      console.log(this.magazine);
+    })
+  }
+  
+  public updateMagazine(){
+    console.log(this.magazine);
+    let response = this.magazineService.updateMagazine(this.magazine);
+    response.subscribe(data => {
+      this.message = data
+      this.router.navigate(['/magazines']);
+      
+    });
+   
+  
+  }
 
 }

@@ -46,6 +46,7 @@ export class RegisterHomeComponent implements OnInit {
   }
 
   editvisitor(id:number){
+    console.log(id)
     this.router.navigate(['editvisitor',id])
   }
 

@@ -26,7 +26,15 @@ export class SearchComponent implements OnInit {
   }
 
   searchBook(): void {
-    this.router.navigate(['search-Book']);
+    this.router.navigate(['searchbook']);
+  };
+
+  searchMagazine(): void {
+    this.router.navigate(['searchmagazine']);
+  };
+
+  searchNewspaper(): void {
+    this.router.navigate(['searchnewspaper']);
   };
 
 }

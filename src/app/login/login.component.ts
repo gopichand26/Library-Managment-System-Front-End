@@ -13,24 +13,26 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
-
   onSubmit() {
+    
     if (this.loginForm.invalid) {
-      return;
+      return 
     }
     const loginPayload = {
       username: this.loginForm.controls.username.value,
       password: this.loginForm.controls.password.value
     }
     this.apiService.login(loginPayload).subscribe(data => {
-      debugger;
+      
       if(data.status === 200) {
         window.localStorage.setItem('token', data.result.token);
+        alert('Logged in Succesfully')
         this.router.navigate(['home-page']);
       }else {
         this.invalidLogin = true;
         alert(data.message);
       }
+      
     });
   }
 

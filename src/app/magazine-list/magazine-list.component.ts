@@ -11,34 +11,24 @@ import { MagazineService } from '../magazine.service';
 })
 export class MagazineListComponent implements OnInit {
 
-  magazines:Observable<Magazine[]>;
-  magazine:any;
-  name:'';
-  
-  constructor(private magazineService: MagazineService,
+  magazines : Observable<Magazine[]>;
+  message : any;
+
+  constructor(private service : MagazineService,
     private router: Router) { }
 
   ngOnInit(){
     this.reloadData();
   }
-  
-  reloadData() {
-    this.magazines = this.magazineService.getMagazineList();
-  } 
-  updateMagazine(name : String){
-    this.router.navigate(['update-magazine', name]);
+  reloadData()
+  {
+    this.magazines=this.service.getMagazine();
   }
+
   
-  searchName() {
-    this.magazineService.findByName(this.name)
-      .subscribe(
-        data => {
-          this.magazine = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+  updateMagazine(name : String){
+    console.log(name);
+    this.router.navigate(['update-magazine',name])
   }
 
 }

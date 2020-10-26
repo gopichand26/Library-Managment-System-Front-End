@@ -10,26 +10,27 @@ import { BooksService } from '../books.service';
 })
 export class SearchBookComponent implements OnInit {
 
- book : any;
- Books = {
-  title:'',
-  author:'',
-  genre:'',
-  publisher:'',
-  floor_no : 0,
-  shelf_no : 0,
- };
-bookTitle: string;
-showBookTable : boolean = false;
+  book : any;
+  Books = {
+   
+    title:'',
+    author:'',
+    genre:'',
+    publisher:'',
+    floor_no : 0,
+    shelf_no : 0,
+  };
+   title: string ;
+showBooksTable : boolean = false;
  constructor(private booksService: BooksService) { }
 
  ngOnInit(): void {
  }
 
  public searchBook(){
-   this.showBookTable = !this.showBookTable;
-   console.log(this.bookTitle);
-   let response = this.booksService.searchBook(this.bookTitle);
+   this.showBooksTable = !this.showBooksTable;
+   console.log(this.title);
+   let response = this.booksService.searchBook(this.title);
    response.subscribe(data => this.book = data);
    console.log(this.book);
  }

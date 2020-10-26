@@ -24,17 +24,7 @@ export class BnmComponent implements OnInit {
       });
   }
 
-  books(): void {
-    this.router.navigate(['books']);
-  };
 
-  Newspapers(): void {
-    this.router.navigate(['newspaper']);
-  };
-
-  Magazines(): void {
-    this.router.navigate(['magazine']);
-  };
 
 
 

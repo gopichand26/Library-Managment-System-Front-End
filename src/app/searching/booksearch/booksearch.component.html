@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="position-relative">
+  <section class="section section-dark section-shaped pb-250">
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white">Choose Search Type :</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+    <div class="container">
+      <div class = "form">
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <select name="book" id="books" class="form-control bg-dark" required [(ngModel)]="type">
+          <option value="title">Title</option>
+          <option value="genre">Genre</option>
+          <option value="author">Author</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <div class="container py-lg-md d-flex">
+        <h1 class="display-3  text-white">Enter field :</h1>
+        <h2 style="margin: auto" class="text-white" > </h2>
+      </div>
+      <input type="text" class="form-control bg-dark" id="name" [(ngModel)]="name" name="name">
+    </div>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+  </div>
+  </form>
+      </div>
+    </div>
+
+    <div class="container py-lg-md d-flex">
+      <h1 class="display-3  text-white" *ngIf="showBookTable">Results</h1>
+      <h2 style="margin: auto" class="text-white" > </h2>
+    </div>
+    <div *ngIf="showBookTable">
+        <table class="table table-striped text-white">
+
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Publisher</th>
+                    <th>Floor_No</th>
+                    <th>Shelf_No</th>
+                </tr>
+                <tr *ngFor="let book of books">
+                  <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.publisher}}</td>
+                <td>{{book.floor_no}}</td>
+                <td>{{book.shelf_no}}</td>
+            </thead>
+        </table>
+        
+    </div>
+    <div *ngIf="isData">
+      <h3>no data available</h3>
+    </div>
+  </section>
+</div>
