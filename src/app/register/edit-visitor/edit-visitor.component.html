@@ -1,23 +1,37 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white ">Give Out Time</h1>
+  <section class="section   section-shaped pb-250">
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark ">Give Out Time</h1>
     </div>
-      <div class="container">
-        <div class = "text-white form">
+      <div class=" container w-50 p-3">
+        <div class = " text-dark form">
     <form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">ID</label>
-    <input type="text" class="form-control bg-dark" id="id" [(ngModel)]="id" placeholder="{{id}}" name="id" readonly>
+    <input type="text" class="form-control  " id="id" [(ngModel)]="register.id"  name="id" readonly>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control " id="name" [(ngModel)]="register.name" name="name" readonly>
   </div>
 
     <div class="form-group">
         <label for="name">Out Time</label>
-        <input type="time" class="form-control bg-dark" id="outtime" [(ngModel)]="outtime" name="outtime">
+        <input type="time" class="form-control  " id="outtime" [(ngModel)]="register.outtime" name="outtime" required #outtime="ngModel">
       </div>
+
+      <div *ngIf="outtime.invalid && (outtime.dirty || outtime.touched)"
+      class="text-danger">
+
+      <div *ngIf="outtime.errors.required">
+         Out Time  is required.
+      </div>
+      </div>
+
   <div class="text-center" >
-    <button type="submit" class="btn btn-success bg-dark">submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="outtime.invalid">submit</button>
 </div>
   </form>
         </div>

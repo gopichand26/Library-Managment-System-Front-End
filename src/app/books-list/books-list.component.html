@@ -1,22 +1,22 @@
 <app-navbar></app-navbar>
-<section class="section section-dark section-shaped pb-250">
+<section class="section   section-shaped pb-250">
 <div class="container-fluid" >
   <div class="col-md-offset-1">
-    <h2 class="text-center text-white">
-      Welcome to Books Library
-      <footer class="blockquote-footer">Done by  <cite title="Source Title">K GANGADHAR</cite></footer>
+    <h2 class="text-center  text-dark">
+    <kbd>Welcome to Books Library</kbd>
+      
     </h2><br>
 
     <img class="float-right" src="assets\img\Library.jpg" alt="Chania" width="1000" height="400">
     
   </div>
   
-  <h2 class="left text-white" >Choose The Required Field</h2><br>
+  <h2 class="left  text-dark" >Choose The Required Field</h2><br>
 
   <br>
-  <a style="-ms-layout-grid-mode: 5px" routerLink="/add-Book"><button type="button" class="btn btn-danger bg-dark">Add Books</button></a> <br>
+  <a style="-ms-layout-grid-mode: 5px" routerLink="/add-Book"><button type="button" class="btn btn-danger  ">Add Books</button></a> <br>
   <br>
-  <a style="-ms-layout-grid-line:20px" routerLink="/search-Book"><button type="button" class="btn btn-warning bg-dark">Search Book</button></a>
+  <a style="-ms-layout-grid-line:20px" routerLink="/search-Book"><button type="button" class="btn btn-warning  ">Search Book</button></a>
   
   <br/>
    <br/>
@@ -31,11 +31,11 @@
 
 <div class="position-relative">
   <div class="container py-lg-md d-flex">
-    <h1 class="display-3  text-white ">Here are the Available Books</h1>
+    <h1 class="display-3   text-dark ">Here are the Available Books</h1>
   </div>
     
       
-      <table  class="table table-striped text-white">
+      <table  class="table table-striped  text-dark">
         <thead>
         <tr>
           
@@ -56,7 +56,7 @@
                 <td class="hidden">{{book.publisher}}</td>
                 <td class="hidden">{{book.floor_no}}</td>
                 <td class="hidden">{{book.shelf_no}}</td>
-                <td><button class="btn btn-primary bg-dark"  (click)="updateBook(book.title)">Update</button></td>
+                <td><button class="btn btn-primary  "  (click)="updateBook(book.title)">Update</button></td>
              </tr>
         </tbody>
       </table>

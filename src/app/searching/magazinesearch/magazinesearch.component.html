@@ -1,38 +1,44 @@
 <app-navbar></app-navbar>
+<div *ngIf="isTyped" class="text-danger text-center">
+  * All fields are required.
+</div>
+<div *ngIf="isMagname" class="text-danger text-center">
+  * Magazine Name is required.
+</div>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white">Enter Magzine name :</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+  <section class="section   section-shaped pb-250">
+    <div class=" container w-50 ">
+      <h1 class="display-3   text-dark">Enter Magazine Name :</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
-    <div class="container">
+    <div class=" container w-50 p-3">
       <div class = "form">
 <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <input type="text" class="form-control bg-dark" id="magname" [(ngModel)]="magname" name="magname"><br>
+      <input type="text" class="form-control  " id="magname" [(ngModel)]="magname" name="magname" placeholder="Magazine Name"><br>
       <div class="text-center">
-      <button type="button" class="btn btn-primary bg-dark" (click)="searchAllDate()">All Dates</button>
+      <button type="button" class="btn btn-primary  " (click)="searchAllDate()">All Dates</button>
       </div>
     </div>
     <div class="form-group">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white">Enter Date :</h1>
-        <h2 style="margin: auto" class="text-white" > </h2>
+      <div class=" container w-50 p-3 py-lg-md d-flex" class="text-left">
+        <h1 class="display-3   text-dark">Enter Date :</h1>
+        <h2 style="margin: auto" class=" text-dark" > </h2>
       </div>
-        <input type="date" class="form-control bg-dark" id="magdate" [(ngModel)]="magdate" name="magdate">
+        <input type="date" class="form-control  " id="magdate" [(ngModel)]="magdate" name="magdate">
       </div>
       <div class="text-center">
-    <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+    <button type="submit" class="btn btn-primary  " >Search</button>
       </div>
   </form>
 </div>
     </div>
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white" *ngIf="showMagTab">Results</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark" *ngIf="showMagTab">Results</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
     <div *ngIf="showMagTab">
-        <table class="table table-striped text-white">
+        <table class="table table-striped  text-dark">
 
             <thead>
                 <tr>

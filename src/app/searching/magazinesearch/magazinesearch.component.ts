@@ -15,6 +15,8 @@ export class MagazinesearchComponent implements OnInit {
   magazines:Observable<Magazine[]>
   magname:string
   magdate:string
+  isTyped:boolean
+  isMagname:boolean
   constructor(private magazineService: MagazineService,
     private router: Router) { }
 
@@ -27,15 +29,25 @@ export class MagazinesearchComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.magname&&this.magdate){
+      this.isTyped=false
    this.showMagTab=true
    let response = this.magazineService.getMagSList(this.magname,this.magdate);
    response.subscribe(data => this.magazines = data )
+  }else{
+      this.isTyped=true
+  }
   }
 
   searchAllDate(){
+    if(this.magname){
+      this.isMagname=false
     this.showMagTab=true
     let response = this.magazineService.getMagAll(this.magname);
     response.subscribe(data => this.magazines = data)
+  }else{
+    this.isMagname=true
+  }
   }
 
 }

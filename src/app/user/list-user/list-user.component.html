@@ -1,24 +1,24 @@
 <app-navbar></app-navbar>
 <main>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
+  <section class="section  section-shaped pb-250">
     <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white">User Details</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
-      <button class="btn btn-success bg-dark" style="width:auto" (click)="addUser()"> Add User</button>
+      <h1 class="display-3   text-dark">User List</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
+      <button class="btn btn-success  " style="width:auto" (click)="addUser()"> Add User</button>
     </div>
 
-    <table class="table table-striped text-white">
+    <table class="table table-striped  text-dark">
       <thead>
       <tr>
         <th class="hidden">Id</th>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>UserName</th>
-        <th>Age</th>
-        <th>Salary</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>username</th>
+        <th>age</th>
+        <!-- <th>Salary</th> -->
+        <th>edit</th>
+        <th>delete</th>
       </tr>
       </thead>
       <tbody>
@@ -28,9 +28,9 @@
         <td>{{user.lastName}}</td>
         <td>{{user.username}}</td>
         <td>{{user.age}}</td>
-        <td>{{user.salary}}</td>
-        <td><button class="btn btn-success bg-dark" (click)="editUser(user)" > Edit</button></td>
-        <td><button class="btn btn-danger bg-dark"  (click)="deleteUser(user)" > Delete</button></td>
+        <!-- <td>{{user.salary}}</td> -->
+        <td><button class="btn btn-success  " (click)="editUser(user)" > Edit</button></td>
+        <td><button class="btn btn-danger  "  (click)="deleteUser(user)" > Delete</button></td>
       </tr>
       </tbody>
     </table>

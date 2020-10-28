@@ -1,38 +1,38 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white ">Update Library Design</h1>
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark ">Update Library Design</h1>
     </div>
-    <div class="container">
-<div class="text-white form">
+    <div class=" container w-50 p-3">
+<div class=" text-dark form">
 
             <form>
                 <fieldset>
 
                     <div class="form-group">
                         <label for="no_shelfs">No_Of_Shelfs</label>
-                        <input class="form-control bg-dark" type="text" [(ngModel)]="library.no_shelfs" name="no_shelfs" id="txt "  required placeholder="Enter Total No Shelfs"/>
+                        <input class="form-control  " type="text" [(ngModel)]="library.no_shelfs" name="no_shelfs" id="txt "  required placeholder="Enter Total No Shelfs"/>
 
                     </div>
 
                     <div class="form-group ">
                         <label for="no_books">No_Of_Books</label>
-                        <input class="form-control bg-dark" required type="text " [(ngModel)]="library.no_books" name="no_books" id="txt " placeholder="Enter Total No Books" />
+                        <input class="form-control  " required type="text " [(ngModel)]="library.no_books" name="no_books" id="txt " placeholder="Enter Total No Books" />
                     </div>
  
                     <div class="form-group ">
                         <label for="no_magazines ">No_Of_Magazines</label>
-                        <input class="form-control bg-dark " required type="text " [(ngModel)]="library.no_magazines " name="no_magazines" id="txt " placeholder="Enter Total No Magazines " />
+                        <input class="form-control   " required type="text " [(ngModel)]="library.no_magazines " name="no_magazines" id="txt " placeholder="Enter Total No Magazines " />
                     </div>
 
                     <div class="form-group ">
                         <label for="no_newspapers ">No_Of_NewsPapers</label>
-                        <input class="form-control bg-dark " required type="text " [(ngModel)]="library.no_newspapers " name="no_newspapers" id="txt " placeholder="Enter Total No NewsPapers " />
+                        <input class="form-control   " required type="text " [(ngModel)]="library.no_newspapers " name="no_newspapers" id="txt " placeholder="Enter Total No NewsPapers " />
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-success bg-dark" type="submit " name="submit_reg " value="Update Library" (click)="updateLibrary()">Update Library</button>
+                        <button class="btn btn-success  " type="submit " name="submit_reg " value="Update Library" (click)="updateLibrary()">Update Library</button>
                     </div>
                 </fieldset>
             </form>

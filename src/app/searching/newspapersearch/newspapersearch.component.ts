@@ -14,6 +14,8 @@ export class NewspapersearchComponent implements OnInit {
   newspapers:Newspaper[]
   newsname:string
   newsdate:string
+  isTyped:boolean
+  isNewsname:boolean
   constructor(private newspaperService:NewspaperService,
     private router: Router) { }
 
@@ -26,15 +28,25 @@ export class NewspapersearchComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.newsdate&&this.newsname){
+      this.isTyped=false
    this.showNewsTab=true
    let response = this.newspaperService.getMagSList(this.newsname,this.newsdate);
    response.subscribe(data => this.newspapers = data )
+  }else{
+      this.isTyped=true
+  }
   }
 
   searchAllDate(){
+    if(this.newsname){
+      this.isNewsname=false
     this.showNewsTab=true
     let response = this.newspaperService.getMagAll(this.newsname);
     response.subscribe(data => this.newspapers = data)
+    }else{
+        this.isNewsname=true
+    }
   }
 
 }

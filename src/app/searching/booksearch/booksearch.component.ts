@@ -18,18 +18,31 @@ export class BooksearchComponent implements OnInit {
 
   showBookTable = false
   type :string
-  name :string
+  name :any
   books : Books[]
-  isData = false
+  isTyped :boolean
+  isData : boolean
   constructor(private bookService :BooksService,private router: Router, ) { }
 
   ngOnInit(): void {
+    this.isTyped=false
+    this.onSubmit
 }
   
  onSubmit(){
- this.showBookTable=true
- let response = this.bookService.getbs(this.type,this.name)
- response.subscribe(data => this.books=data)
+  if(this.name){
+    this.showBookTable=true
+    this.isTyped=false
+    let response = this.bookService.getbs(this.type,this.name)
+    response.subscribe(data => this.books=data)
+    if(this.books==null){
+     this.isData=true
+   }else{
+    this.isData=false
+   }
+    }else{
+       this.isTyped=true
+    }
  }
   }
 

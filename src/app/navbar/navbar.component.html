@@ -1,13 +1,13 @@
-<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-dark bg-dark headroom--top">
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-dark bg-dark   headroom--top">
     <div class="container ">
       <a class="navbar-brand mr-lg-5 " [routerLink]="['/home-page']">
         <img src="./assets/img/library.png" >
       </a>
-      <button class="navbar-toggler bg-dark " type="button" (click)="isCollapsed = !isCollapsed"
+      <button class="navbar-toggler   " type="button" (click)="isCollapsed = !isCollapsed"
             [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse bg-dark " id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse collapse   " id="navbar_global" [ngbCollapse]="isCollapsed">
         <div class="navbar-collapse-header ">
           <div class="row ">
             <div class="col-6 collapse-brand ">
@@ -15,7 +15,7 @@
                 <img src="./assets/img/brand/blue.png">
               </a>
             </div>
-            <div class="col-6 collapse-close bg-dark">
+            <div class="col-6 collapse-close  ">
               <button type="button" class="navbar-toggler " (click)="isCollapsed = !isCollapsed"
                     [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
                 <span></span>
@@ -24,66 +24,55 @@
             </div>
           </div>
         </div>
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center bg-dark">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center  ">
           <li class="nav-item dropdown ">
-            <a class="nav-link no-caret bg-dark" data-toggle="dropdown" role="button">
-              <i class="ni ni-ui-04 d-lg-none bg-dark"></i>
+            <a class="nav-link no-caret  " data-toggle="dropdown" role="button">
+              <i class="ni ni-ui-04 d-lg-none  "></i>
               <span class="nav-link-inner--text">Browse</span>
             </a>
-            <div class="dropdown-menu-xl dropdown-menu bg-dark" >
-              <div class="dropdown-menu-inner bg-dark">
+            <div class="dropdown-menu-xl dropdown-menu  " >
+              <div class="dropdown-menu-inner  ">
                 <a routerLinkActive="active" routerLink="/list-user" class="media d-flex align-items-center ">
                   
                   <div class="media-body ml-3">
-                    <h6 class="heading text-primary mb-md-1">Members List</h6>
-                    <p class="description d-none d-md-inline-block mb-0">Know the details of who have the access to this system including with you.</p>
+                    <h6 class="heading text-primary mb-md-1">User List</h6>
+                    <p class="description d-none d-md-inline-block mb-0 text-dark">Know the details of who have the access to this system including with you.</p>
                   </div>
                 </a>
                 <a routerLinkActive="active" routerLink="/register" class="media d-flex align-items-center">
                   
                   <div class="media-body ml-3">
                     <h6 class="heading text-success mb-md-1">Daily Register</h6>
-                    <p class="description d-none d-md-inline-block mb-0">Enter the data of a visitor while visitor enters with visitor Id, visitor name, In timing. While visitor exiting admin enter the out timing..</p>
+                    <p class="description d-none d-md-inline-block mb-0 text-dark">Enter the data of a visitor while visitor enters with visitor Id, visitor name, In timing. While visitor exiting admin enter the out timing..</p>
                   </div>
                 </a>
                 <a routerLinkActive="active" routerLink="/bnm" class="media d-flex align-items-center">
                  
                   <div class="media-body ml-3">
-                    <h5 class="heading text-warning mb-md-1">Books, Newspapers and Magazines</h5>
-                    <p class="description d-none d-md-inline-block mb-0">To add, update and for searching the books, magazines and newspapers.</p>
+                    <h5 class="heading text-warning mb-md-1 ">Books, Newspapers and Magazines</h5>
+                    <p class="description d-none d-md-inline-block mb-0 text-dark">To add, update and for searching the books, magazines and newspapers.</p>
                   </div>
                 </a>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown bg-dark ">
-            <a class="nav-link no-caret bg-dark" data-toggle="dropdown" role="button">
+          <li class="nav-item dropdown   ">
+            <a class="nav-link no-caret  " data-toggle="dropdown" role="button">
               <i class="ni ni-collection d-lg-none"></i>
               <span class="nav-link-inner--text ">Search</span>
             </a>
             <div class="dropdown-menu  ">
-              <a class="dropdown-item bg-dark text-warning" routerLink="/searchbook">Books</a>
-              <a  class="dropdown-item bg-dark text-primary" routerLink="/searchnewspaper">Newspapers</a>
-              <a class="dropdown-item bg-dark text-success"routerLink="/searchmagazine">Magazines</a>
+              <a class="dropdown-item   text-warning" routerLink="/searchbook">Books</a>
+              <a  class="dropdown-item   text-primary" routerLink="/searchnewspaper">Newspapers</a>
+              <a class="dropdown-item   text-success"routerLink="/searchmagazine">Magazines</a>
               
             </div>
           </li>
         </ul>
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-          <li class="nav-item">
-            <a class="nav-link nav-link-icon" href="https://github.com/gopichand26/Library-Managment-System-Front-End" target="_blank" data-toggle="tooltip" title="View Front-End code on Github">
-              <i class="fa fa-github"></i>
-              <span class="nav-link-inner--text d-lg-none">Github</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link-icon" href="https://github.com/gopichand26/Library-Managment-System-Back-End" target="_blank" data-toggle="tooltip" title="View Back-End code on Github">
-              <i class="fa fa-github"></i>
-              <span class="nav-link-inner--text d-lg-none">Github</span>
-            </a>
-          </li>
+          
           <li class="nav-item d-none d-lg-block ml-lg-4">
-            <a href="" class="btn btn-danger btn-icon bg-dark" title="Click here to say bye">
+            <a href="" class="btn btn-danger btn-icon  " title="Click here to say bye">
         
               <span class="nav-link-inner--text ">Logout</span>
             </a>

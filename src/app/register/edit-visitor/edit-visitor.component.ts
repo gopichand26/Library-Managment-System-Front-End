@@ -34,7 +34,7 @@ export class EditVisitorComponent implements OnInit {
   }
 
   updateEmployee() {
-    this.register.outtime=this.outtime;
+    
     this.registerService.editvisitor(this.id, this.register)
       .subscribe(data => {
         console.log(data);

@@ -40,12 +40,12 @@ export class ListUserComponent implements OnInit {
   };
 
   deleteUser(user: User) : void {
-    if(confirm("Are you sure to delete this user")) {
+    if(confirm("are you sure to delete this user")) {
       console.log(this.apiService.deleteUser(user.id)
       .subscribe( data => {
         this.users = this.users.filter(u => u !== user);
         if(data.status === 200) {
-          alert('User deleted successfully.');
+          alert('user deleted successfully.');
           this.router.navigate(['list-user']);
         }else {
           alert(data.message);

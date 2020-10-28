@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
+  <section class="section   section-shaped pb-250">
     <div class="container py-lg-md d-flex">
-    <h1 class="display-3  text-white">Magazines List</h1>
-    <h2 style="margin: auto" class="text-white" > </h2>
-    <button class="btn btn-success bg-dark btn-lg float-right" style="width:auto" routerLink="/add-magazine"> Add Magazine</button>
-    <button class="btn btn-success bg-dark" style="width:auto" routerLink="/search-magazine">Search Magazine</button>
+    <h1 class="display-3   text-dark">Magazines List</h1>
+    <h2 style="margin: auto" class=" text-dark" > </h2>
+    <button class="btn btn-success   btn-lg float-right" style="width:auto" routerLink="/add-magazine"> Add Magazine</button>
+    <button class="btn btn-success  " style="width:auto" routerLink="/search-magazine">Search Magazine</button>
 
     </div>  
    <!-- nav -->      
-  <table  class="table table-striped text-white">
+  <table  class="table table-striped  text-dark">
     <thead>
     <tr>
       
@@ -28,7 +28,7 @@
             <td class="hidden">{{magazine.shelfno}}</td>
             <td class="hidden">{{magazine.name}}</td>
             <td class="hidden">{{magazine.date | date:'yyyy-MM-dd'}}</td>
-            <td><button class="btn btn-info bg-dark" style="margin-left: 10px" (click)="updateMagazine(magazine.name)">Update</button></td>
+            <td><button class="btn btn-info  " style="margin-left: 10px" (click)="updateMagazine(magazine.name)">Update</button></td>
          </tr>
     </tbody>
   </table>

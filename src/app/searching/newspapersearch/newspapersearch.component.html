@@ -1,38 +1,44 @@
 <app-navbar></app-navbar>
+<div *ngIf="isTyped" class="text-danger text-center">
+  * All fields are required.
+</div>
+<div *ngIf="isNewsname" class="text-danger text-center">
+  * Newspaper Name is required.
+</div>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white">Enter Newspaper name :</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+  <section class="section   section-shaped pb-250">
+    <div class=" container w-50 ">
+      <h1 class="display-3   text-dark">Enter Newspaper Name :</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
-    <div class="container">
+    <div class=" container w-50 p-3">
       <div class = "form">
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="text" class="form-control bg-dark" id="newsname" [(ngModel)]="newsname" name="newsname"><br>
+          <input type="text" class="form-control  " id="newsname" [(ngModel)]="newsname" name="newsname"><br>
           <div class="text-center">
-          <button type="button" class="btn btn-primary bg-dark" (click)="searchAllDate()">All Dates</button>
+          <button type="button" class="btn btn-primary  " (click)="searchAllDate()">All Dates</button>
         </div>
       </div>
         <div class="form-group">
-          <div class="container py-lg-md d-flex">
-            <h1 class="display-3  text-white">Enter Date :</h1>
-            <h2 style="margin: auto" class="text-white" > </h2>
+          <div class=" container w-50 p-3 py-lg-md d-flex" class="text-left">
+            <h1 class="display-3   text-dark">Enter Date :</h1>
+            <h2 style="margin: auto" class=" text-dark" > </h2>
           </div>
-            <input type="date" class="form-control bg-dark" id="newsdate" [(ngModel)]="newsdate" name="newsdate">
+            <input type="date" class="form-control  " id="newsdate" [(ngModel)]="newsdate" name="newsdate">
           </div>
           <div class="text-center">
-        <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+        <button type="submit" class="btn btn-primary  " >Search</button>
       </div>
       </form>
     </div>
     </div>
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white" *ngIf="showNewsTab">Results</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark" *ngIf="showNewsTab">Results</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
         <div *ngIf="showNewsTab" >
-            <table class="table table-striped text-white">
+            <table class="table table-striped  text-dark">
     
                 <thead>
                     <tr>

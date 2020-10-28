@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white ">Enter details of Magazine to add</h1>
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+        <h1 class="display-3   text-dark ">Enter details of Magazine to add</h1>
       </div>
-      <div class="container">
-        <div class = "text-white form">
+      <div class=" container w-50 p-3">
+        <div class = " text-dark form">
               <form name="form" [formGroup] = "form">
                   <fieldset>
 
                       <div class="form-group">
                           <label for="floorno">Floorno</label>
-                          <input class="form-control bg-dark" type="text" [(ngModel)]="magazine.floorno" name="floorno" id="txt" required placeholder="Enter Floorno"
+                          <input class="form-control  " type="text" [(ngModel)]="magazine.floorno" name="floorno" id="txt" required placeholder="Enter Floorno"
                           formControlName = "floorno" [ngClass]="{'is-invalid':form.get('floorno').touched && form.get('floorno').invalid}"/>
                           <div class="invalid-feedback">
                               <div>Floorno Is Mandatory and It Should Be Integer</div>
@@ -22,7 +22,7 @@
   
                       <div class="form-group ">
                         <label for="shelfno">Shelfno</label>
-                        <input class="form-control bg-dark " type="text " [(ngModel)]="magazine.shelfno" name="shelfno" id="txt " required placeholder="Enter Shelfno " 
+                        <input class="form-control   " type="text " [(ngModel)]="magazine.shelfno" name="shelfno" id="txt " required placeholder="Enter Shelfno " 
                         formControlName = "shelfno" [ngClass]="{'is-invalid':form.get('shelfno').touched && form.get('shelfno').invalid}"/>
                           <div class="invalid-feedback">
                               <div>Shelfno Is Mandatory and It Should Be String</div>
@@ -32,7 +32,7 @@
 
                       <div class="form-group">
                           <label for="name">Name</label>
-                          <input class="form-control bg-dark" type="text" [(ngModel)]="magazine.name" name="name" id="txt" required placeholder="Enter Name"
+                          <input class="form-control  " type="text" [(ngModel)]="magazine.name" name="name" id="txt" required placeholder="Enter Name"
                           formControlName = "name" [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').invalid}"/>
                         <div class="invalid-feedback">
                             <div>Name Is Mandatory and It Should Be String</div>
@@ -42,7 +42,7 @@
   
                       <div class="form-group">
                           <label for="date">Date</label>
-                          <input class="form-control bg-dark" type="date" [(ngModel)]="magazine.date" name="date" id="date" required placeholder="Enter Date"
+                          <input class="form-control  " type="date" [(ngModel)]="magazine.date" name="date" id="date" required placeholder="Enter Date"
                           formControlName = "date" [ngClass]="{'is-invalid':form.get('date').touched && form.get('date').invalid}"/>
                         <div class="invalid-feedback">
                             <div>Date Is Mandatory and It Should Be DateFormate</div>
@@ -51,7 +51,7 @@
                       
                   
                       <div class="text-center">
-                        <button class="btn btn-success bg-dark" type="submit " name="submit_reg " (click)="addMagazine()">Add Magazine</button>                      </div> 
+                        <button class="btn btn-success  " type="submit " name="submit_reg " (click)="addMagazine()">Add Magazine</button>                      </div> 
                   </fieldset>
               </form>
         </div>

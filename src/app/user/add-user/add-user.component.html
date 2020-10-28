@@ -1,51 +1,95 @@
 <app-navbar></app-navbar>
 <main>
-  <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white ">Enter details of user to add</h1>
+
+
+ <!--  <h2>Template-driven Form</h2>
+  <form #f="ngForm">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" name="username" ngModel #username="ngModel" uniqueUsername>
+      <div class="text-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+        Username already exists
       </div>
-        <div class="container">
+      <div *ngIf="username.errors['uniqueUsername']">duplicate username</div>
+    </div>
+    <button type="button" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+  </form>
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Form status: {{f.status}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Form Value</h6>
+      <pre>{{f.value | json}}</pre>
+    </div>
+  </div> -->
+  <!-- <form [formGroup]="registerForm" novalidate autocomplete="off">
+    <div for="staticUsername"class="form-group row">
+      <label  >username</label>
+      <input type="text" id="staticUsername" formControlName="username"
+      [class.is-invalid]="registerForm.controls.username.touched && registerForm.controls.username.invalid"
+      autocomplete="off">
+      <div *ngIf="registerForm.controls.username.invalid">
+        <div class="text-danger"
+        *ngIf="registerForm.controls.username.touched && registerForm.controls.username.hasError('required')">
+      username is required</div>
+      <div class="text-danger" *ngIf="registerForm.controls.username.hasError('duplicateUsername')">Username is duplicate</div>
+      </div>
+    </div>
+  
+  </form>  -->
+
+  <div class="position-relative">
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+        <h1 class="display-3   text-dark ">Enter details of user to add</h1>
+      </div>
+        <div class=" container  w-50 p-3">
   <div class = "form">
     <form #regForm="ngForm"  (ngSubmit)="Registers(regForm)" novalidate>
-      <div class="form-group">   
-        <input type="text" class="form-control bg-dark" required minlength="4" pattern="^[a-zA-Z]+$" #username="ngModel"  placeholder="username"  name="username" autofocus ngModel>
+     <div class="form-group">   
+        <input type="text" class="form-control  " required maxlength="15" minlength="4" pattern="^[a-zA-Z]+$" #username="ngModel"   placeholder="username"  name="username" autofocus ngModel>
       </div>
-      <div *ngIf="username.invalid && (username.dirty || username.touched)"
+     
+     <div *ngIf="username.invalid && (username.dirty || username.touched)"
     class="text-danger">
 
+    
+
   <div *ngIf="username.errors.required">
-    Username is required.
+    username is required.
   </div>
   <div *ngIf="username.errors.minlength">
-    Username must be at least 4 characters long.
+    username must be at least 4 characters long.
   </div>
   <div *ngIf="username.errors.pattern">
-    Username must be in alphabets.
+    username must be in alphabets.
+  </div>
+  <div *ngIf="username.errors.maxlength">
+    username should have maximum of 15 characters long.
   </div>
 
-</div>
-  
+</div>  
+
       <div class="form-group">
-        <input type="password" class="form-control bg-dark" required minlength="4" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" #password="ngModel" placeholder="password" name="password"   ngModel>
+        <input type="password" class="form-control  " required maxlength="15" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" #password="ngModel" placeholder="password" name="password"   ngModel>
       </div>
       <div *ngIf="password.invalid && (password.dirty || password.touched)"
     class="text-danger">
 
   <div *ngIf="password.errors.required">
-    Password is required.
+    password is required.
   </div>
   <div *ngIf="password.errors.minlength">
-    Password must be at least 4 characters long.
+    password must be at least 6 characters long.
   </div>
   <div *ngIf="password.errors.pattern">
-    Password should contain each of lowercase, uppercase and number.
+    password should contain each of lowercase, uppercase and number.
   </div>
 
 </div>
   
       <div class="form-group">
-        <input type="text" class="form-control bg-dark" required pattern="^[a-zA-Z]+$" #firstname="ngModel" placeholder="First Name" name="firstName"   ngModel>
+        <input type="text" class="form-control  " required maxlength="15" pattern="^[a-zA-Z]+$" #firstname="ngModel" placeholder="firstname" name="firstName"   ngModel>
       </div>
       <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
       class="text-danger">
@@ -61,7 +105,7 @@
   
       <div class="form-group">
   
-        <input type="text" class="form-control bg-dark" required pattern="^[a-zA-Z]+$" #lastname="ngModel" placeholder="Last name" name="lastName"  ngModel>
+        <input type="text" class="form-control"  required maxlength="15" pattern="^[a-zA-Z]+$" #lastname="ngModel" placeholder="lastname" name="lastName"  ngModel>
       </div>
       <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
       class="text-danger">
@@ -77,7 +121,7 @@
   
       <div class="form-group">
     
-        <input type="number" class="form-control bg-dark" required   #age="ngModel"  placeholder="age" name="age"  ngModel>
+        <input type="number" class="form-control  " required max="2"  #age="ngModel"  placeholder="age" name="age"  ngModel>
       </div>
       <div *ngIf="age.invalid && (age.dirty || age.touched)"
       class="text-danger">
@@ -88,9 +132,9 @@
   
   </div>
   
-      <div class="form-group">
+      <!-- <div class="form-group">
       
-        <input type="number" class="form-control bg-dark" required minlength="3" maxlength="10" #salary="ngModel"  placeholder="salary" name="salary"  ngModel>
+        <input type="number" class="form-control  " required minlength="3" maxlength="10" #salary="ngModel"  placeholder="salary" name="salary"  ngModel>
       </div>
       
         <div *ngIf="salary.invalid && (salary.dirty || salary.touched)"
@@ -100,9 +144,9 @@
       salary is required.
     </div>
   <br>
-  </div>
+  </div> -->
   <div class="text-center">
-      <button type="submit" class="btn btn-success bg-dark">Add</button>
+      <button type="submit" class="btn btn-success  ">Add</button>
     </div>
 
     

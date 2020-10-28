@@ -3,43 +3,43 @@
 </div> -->
 <app-navbar></app-navbar>
 <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white ">Update Book Data</h1>
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+        <h1 class="display-3   text-dark ">Update Book Data</h1>
       </div>
-        <div class="container">
-  <div class = "text-white form">
+        <div class=" container w-50 p-3">
+  <div class = " text-dark form">
             <form>
                 <fieldset>
 
                     <div class="form-group">
                         <label for="author">Author</label>
-                        <input class="form-control bg-dark" type="text" [(ngModel)]="book.author" name="author" id="txt" required value="author"  readonly/>
+                        <input class="form-control  " type="text" [(ngModel)]="book.author" name="author" id="txt" required value="author"  readonly/>
                         <!-- <p>{{student.name}}</p> -->
                     </div>
 
                     <div class="form-group">
                         <label for="genre">Genre</label>
-                        <input class="form-control bg-dark" type="text" [(ngModel)]="book.genre" name="genre" id="txt "  required readonly/>
+                        <input class="form-control  " type="text" [(ngModel)]="book.genre" name="genre" id="txt "  required readonly/>
 
                     </div>
 
                     <div class="form-group ">
                         <label for="publisher">Publisher</label>
-                        <input class="form-control bg-dark " required type="text " [(ngModel)]="book.publisher" name="publisher" id="txt " readonly />
+                        <input class="form-control   " required type="text " [(ngModel)]="book.publisher" name="publisher" id="txt " readonly />
                     </div>
 
                     <div class="form-group ">
                         <label for="floor_no ">Floor_No</label>
-                        <input class="form-control bg-dark " required type="text " [(ngModel)]="book.floor_no " name="floor_no" id="txt " placeholder="Enter floor no " />
+                        <input class="form-control   " required type="text " [(ngModel)]="book.floor_no " name="floor_no" id="txt " placeholder="Enter floor no " />
                     </div>
 
                     <div class="form-group ">
                         <label for="shelf_no ">Shelf_No</label>
-                        <input class="form-control bg-dark " required type="text " [(ngModel)]="book.shelf_no " name="shelf_no" id="txt " placeholder="Enter shelf no " />
+                        <input class="form-control   " required type="text " [(ngModel)]="book.shelf_no " name="shelf_no" id="txt " placeholder="Enter shelf no " />
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success bg-dark" (click)="updateBook()">Update Book</button>
+                        <button type="submit" class="btn btn-success  " (click)="updateBook()">Update Book</button>
                       </div>
                 </fieldset>
             </form>

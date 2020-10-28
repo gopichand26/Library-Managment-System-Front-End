@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormsModule, FormGroup, NgForm, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { uniqueUsernameValidator } from 'src/app/service/unique-username-validator.directive';
 import {ApiService} from "../../service/api.service";
 @Component({
   selector: 'app-add-user',
@@ -9,13 +10,27 @@ import {ApiService} from "../../service/api.service";
 })
 export class AddUserComponent implements OnInit {
   data;
+  reactiveForm: FormGroup;
+
+/*   createForm() {
+    this.reactiveForm = this.formBuilder.group({
+      username: ['',
+        null, // sync validator
+        uniqueUsernameValidator(this.apiService) // async validator
+      ]
+    });
+  }
+
+  get username() {
+    return this.reactiveForm.get('username');
+  } */
 
 
   constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
 
 
   ngOnInit() {
-
+   /*  this.apiService.getUsers().subscribe(); */
 
   }
 

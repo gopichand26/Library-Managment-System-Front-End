@@ -1,40 +1,47 @@
 <app-navbar></app-navbar>
+
+<div *ngIf="isTyped" class="text-danger text-center">
+  * All fields are required.
+</div>
+
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white">Choose Search Type :</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+  <section class="section   section-shaped pb-250">
+    <div class=" container w-50 p-3 "  >
+      <h1 class="display-3  text-dark">Choose Book Search Type :</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
-    <div class="container">
+    <div class=" container w-50 p-3">
       <div class = "form">
 <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <select name="book" id="books" class="form-control bg-dark" required [(ngModel)]="type">
+        <select name="book" id="books" class="form-control  " required [(ngModel)]="type" aria-placeholder="Search Type">
           <option value="title">Title</option>
           <option value="genre">Genre</option>
           <option value="author">Author</option>
         </select>
     </div>
+    
     <div class="form-group">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white">Enter field :</h1>
-        <h2 style="margin: auto" class="text-white" > </h2>
+      <div class=" container w-50 p-3 py-lg-md d-flex" class="text-left">
+        <h1 class="display-3 text-dark" >Enter Field :</h1>
+        <h2 style="margin: auto" class=" text-dark" > </h2>
       </div>
-      <input type="text" class="form-control bg-dark" id="name" [(ngModel)]="name" name="name">
+     
+      <input type="text" class="form-control  " id="name" [(ngModel)]="name" name="name" placeholder="enter field to search...">
     </div>
     <div class="text-center">
-    <button type="submit" class="btn btn-primary bg-dark" >Search</button>
+    <button type="submit" class="btn btn-primary  " >Search</button>
   </div>
   </form>
       </div>
     </div>
 
-    <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white" *ngIf="showBookTable">Results</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark" *ngIf="showBookTable">Results</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
     </div>
     <div *ngIf="showBookTable">
-        <table class="table table-striped text-white">
+        <table class="table table-striped  text-dark">
 
             <thead>
                 <tr>
@@ -56,8 +63,6 @@
         </table>
         
     </div>
-    <div *ngIf="isData">
-      <h3>no data available</h3>
-    </div>
+  
   </section>
 </div>

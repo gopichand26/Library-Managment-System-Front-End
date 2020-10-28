@@ -10,6 +10,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   baseUrl: string = 'http://localhost:8080/users/';
 
+
+
   login(loginPayload) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
   }
@@ -20,6 +22,10 @@ export class ApiService {
 
   getUserById(id: number): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl + id);
+  }
+
+  getUserByUsername(username: String): Observable<ApiResponse>{
+    return this.http.get<ApiResponse>(`${this.baseUrl}?username=${username}`);
   }
 
   createUser(user: User): Observable<ApiResponse> {

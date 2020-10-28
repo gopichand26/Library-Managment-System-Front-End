@@ -36,7 +36,7 @@ export class RegisterHomeComponent implements OnInit {
       $(function(){
         $('#example').DataTable();
     });
-    },2000);
+    },200);
 
     
   }

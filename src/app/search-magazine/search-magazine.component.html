@@ -1,24 +1,24 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-        <h1 class="display-3  text-white ">Search The Magazine You Want</h1>
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+        <h1 class="display-3   text-dark ">Search The Magazine You Want</h1>
       </div>
-      <div class="container">
-        <div class="text-white form">
+      <div class=" container w-50 p-3">
+        <div class=" text-dark form">
         <div class="form-group ">
-            <input type="text" placeholder="Enter Name" class="form-control bg-dark" name="name" [(ngModel)]="name">
+            <input type="text" placeholder="Enter Name" class="form-control  " name="name" [(ngModel)]="name">
         </div>
         <div class=" text-center ">
-            <button type="button" class="btn btn-info bg-dark" (click)="searchMagazine()">Search</button>
+            <button type="button" class="btn btn-info  " (click)="searchMagazine()">Search</button>
         </div>
     </div>
 </div>
-    <div class="container py-lg-md d-flex">
-    <h2 class="display-3 text-white" *ngIf="showMagazinesTable">Results</h2>
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+    <h2 class="display-3  text-dark" *ngIf="showMagazinesTable">Results</h2>
 </div>
     <div *ngIf="showMagazinesTable">
-        <table class="table table-striped text-white">
+        <table class="table table-striped  text-dark">
   
             <thead>
                 <tr>

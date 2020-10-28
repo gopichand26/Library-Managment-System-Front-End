@@ -1,44 +1,44 @@
 <app-navbar></app-navbar>
 <main>
   <div class="position-relative">
-    <section class="section section-dark section-shaped pb-250">
-      <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white ">Edit User</h1>
+    <section class="section   section-shaped pb-250">
+      <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3   text-dark ">Edit User</h1>
     </div>
-    <div class="container">
-<div class="text-white form">
+    <div class=" container w-50 p-3">
+<div class=" text-dark form">
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <div class="hidden">
-        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control bg-dark" id="id" readonly="true">
+        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control  " id="id" readonly="true">
       </div>
       <div class="form-group ">
-        <label for="username">User Name:</label>
-        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control bg-dark" id="username" readonly="true">
+        <label for="username">username:</label>
+        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control  " id="username" readonly="true">
       </div>
   
       <div class="form-group ">
-        <label for="firstName">First Name:</label>
-        <input formControlName="firstName"  placeholder="First Name" name="firstName" class="form-control bg-dark" id="firstName" autofocus>
+        <label for="firstName">firstname:</label>
+        <input formControlName="firstName"  placeholder="firstname" name="firstName" class="form-control  " id="firstName" autofocus>
       </div>
 
   
       <div class="form-group ">
-        <label for="lastName">Last Name:</label>
-        <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control bg-dark" id="lastName">
+        <label for="lastName">lastname:</label>
+        <input formControlName="lastName" placeholder="lastname" name="lastName" class="form-control  " id="lastName">
       </div>
       
   
       <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="number" formControlName="age" placeholder="age" name="age" class="form-control bg-dark" id="age">
+        <label for="age">age:</label>
+        <input type="number" formControlName="age" placeholder="age" name="age" class="form-control  " id="age">
       </div>
   
-      <div class="form-group " >
+  <!--     <div class="form-group " >
         <label for="salary">Salary:</label>
-        <input type="number" formControlName="salary" placeholder="salary" name="salary" class="form-control bg-dark " id="salary" readonly="true">
-      </div>
+        <input type="number" formControlName="salary" placeholder="salary" name="salary" class="form-control   " id="salary" readonly="true">
+      </div> -->
       <div class="text-center">
-      <button class="btn btn-success bg-dark ">Update</button>
+      <button class="btn btn-success   ">Update</button>
       </div>
         </form>
   </div>

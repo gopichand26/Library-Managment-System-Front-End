@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
-<section class="section section-dark section-shaped pb-250">
+<section class="section   section-shaped pb-250">
 <div class="container-fluid">
     <div class="col-md-offset-1">
-      <h2 class="text-center text-white">
-        Welcome to Library Design
+      <h2 class="text-center  text-dark">
+        <kbd>Welcome to Digital Library</kbd>
       </h2><br>
   
       <img class="float-right" src="assets\img\Library22.jpg" alt="Chania" width="1000" height="400">
@@ -16,9 +16,9 @@
 
     
       <br>
-      <a style="-ms-layout-grid-mode: 5px" routerLink="/add-Library"><button type="button" class="btn btn-info bg-dark">Add Floor</button></a> <br>
+      <a style="-ms-layout-grid-mode: 5px" routerLink="/add-Library"><button type="button" class="btn btn-info  ">Add Floor</button></a> <br>
       <br>
-      <a style="-ms-layout-grid-line:20px" routerLink="/search-Floor"><button type="button" class="btn btn-success bg-dark">Search Floor </button></a><br>
+      <a style="-ms-layout-grid-line:20px" routerLink="/search-Floor"><button type="button" class="btn btn-success  ">Search Floor </button></a><br>
       <br>
     <br/>
      <br/>
@@ -31,9 +31,9 @@
 <br>
 <div class="position-relative">
   <div class="container py-lg-md d-flex">
-    <h1 class="display-3  text-white ">LIBRARY DESIGN</h1>
+    <h1 class="display-3   text-dark ">LIBRARY DESIGN</h1>
   </div>
-      <table  class="table table-striped text-white">
+      <table  class="table table-striped  text-dark">
         <thead>
         <tr>
           
@@ -52,8 +52,8 @@
                 <td class="hidden">{{library.no_books}}</td>
                 <td class="hidden">{{library.no_magazines}}</td>
                 <td class="hidden">{{library.no_newspapers}}</td>
-                <td><button class="btn btn-primary bg-dark" style="margin: 5px" (click)="updateLibrary(library.floor_no)">Update</button>
-                    <button class="btn btn-danger bg-dark" style="margin: 5px" (click)="deleteLibrary(library.floor_no)">Delete</button></td>
+                <td><button class="btn btn-primary  " style="margin: 5px" (click)="updateLibrary(library.floor_no)">Update</button>
+                    <button class="btn btn-danger  " style="margin: 5px" (click)="deleteLibrary(library.floor_no)">Delete</button></td>
              </tr>
         </tbody>
       </table>

@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
 <div class="position-relative">
-  <section class="section section-dark section-shaped pb-250">
+  <section class="section   section-shaped pb-250">
     <div class="container py-lg-md d-flex">
-      <h1 class="display-3  text-white">Library Entry</h1>
-      <h2 style="margin: auto" class="text-white" > </h2>
-      <button class="btn btn-success bg-dark" style="width:auto" (click)="addvisitor()"> Add visitor</button>
+      <h1 class="display-3   text-dark">Daily Register</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
+      <button class="btn btn-success  " style="width:auto" (click)="addvisitor()"> Add visitor</button>
     </div>
   
-  <div class="panel panel-primary text-white bg-dark" style="width:auto" >
+  <div class="panel panel-primary  text-dark  " style="width:auto" >
       <div class="panel-heading">
       </div>
       <div class="panel-body">
-        <table id="example" class="table table-striped text-white" >
+        <table id="example" class="table table-striped  text-dark" >
   
           <thead>
             <tr>
@@ -34,7 +34,7 @@
               <td>{{reg.outtime}}</td>
               
                 <td>
-                  <button style='margin-right:16px' (click)="editvisitor(reg.id)" class="btn btn-success bg-dark" style="margin-left: 10px">update</button>
+                  <button style='margin-right:16px' (click)="editvisitor(reg.id)" class="btn btn-success  " style="margin-left: 10px">update</button>
                 </td>
             </tr>
           </tbody>

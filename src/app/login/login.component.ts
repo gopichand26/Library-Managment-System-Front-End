@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       
       if(data.status === 200) {
         window.localStorage.setItem('token', data.result.token);
-        alert('Logged in Succesfully')
+        alert('logged in succesfully')
         this.router.navigate(['home-page']);
       }else {
         this.invalidLogin = true;

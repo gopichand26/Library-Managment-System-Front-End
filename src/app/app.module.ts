@@ -42,6 +42,7 @@ import { AddLibraryComponent } from './add-library/add-library.component';
 import { SearchLibraryComponent } from './search-library/search-library.component';
 import { DeleteLibraryComponent } from './delete-library/delete-library.component';
 import { UpdateLibraryComponent } from './update-library/update-library.component';
+import { UniqueUsernameValidatorDirective } from './service/unique-username-validator.directive';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { UpdateLibraryComponent } from './update-library/update-library.componen
     AddLibraryComponent,
     SearchLibraryComponent,
     DeleteLibraryComponent,
-    UpdateLibraryComponent
+    UpdateLibraryComponent,
+    UniqueUsernameValidatorDirective,
     
   ],
   imports: [
