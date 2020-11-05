@@ -31,8 +31,6 @@ import { SearchBookComponent } from './search-book/search-book.component';
 import { RegisterService } from './service/register.service';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SearchNewspaperComponent } from './search-newspaper/search-newspaper.component';
-import { SearchMagazineComponent } from './search-magazine/search-magazine.component';
 import { ErrorHandlerService } from './service/error-handler.service';
 import { BooksearchComponent } from './searching/booksearch/booksearch.component';
 import { MagazinesearchComponent } from './searching/magazinesearch/magazinesearch.component';
@@ -43,6 +41,7 @@ import { SearchLibraryComponent } from './search-library/search-library.componen
 import { DeleteLibraryComponent } from './delete-library/delete-library.component';
 import { UpdateLibraryComponent } from './update-library/update-library.component';
 import { UniqueUsernameValidatorDirective } from './service/unique-username-validator.directive';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -67,8 +66,6 @@ import { UniqueUsernameValidatorDirective } from './service/unique-username-vali
     SearchBookComponent,
     EditUserComponent,
     NavbarComponent,
-    SearchNewspaperComponent,
-    SearchMagazineComponent,
     BooksearchComponent,
     MagazinesearchComponent,
     NewspapersearchComponent,
@@ -87,7 +84,8 @@ import { UniqueUsernameValidatorDirective } from './service/unique-username-vali
     routing,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [
     ApiService, 

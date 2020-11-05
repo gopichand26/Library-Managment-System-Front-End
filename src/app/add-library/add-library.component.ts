@@ -21,12 +21,19 @@ export class AddLibraryComponent  {
   })
   constructor(private router: Router, private libraryService: LibraryService) { }
 
+  ngOnInit() {
+    if(!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
+  }
+
   addLibrary(): void {
       
     console.log(this.library)
     let response = this.libraryService.addLibrary(this.library);
     response.subscribe(data => {
-      alert("Floor add successfully");
+      alert("Floor added successfully");
       this.router.navigate(['/library']);
     });
     

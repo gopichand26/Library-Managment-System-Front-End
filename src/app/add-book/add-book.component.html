@@ -13,7 +13,7 @@
                           <input class="form-control   " type="text" [(ngModel)]="book.title" name="title" id="txt" required placeholder="Enter Title" 
                           formControlName = "title" [ngClass]="{'is-invalid':form.get('title').touched && form.get('title').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Title Is Mandatory and It Should Be String</div>
+                              <div>Please Enter The Title</div>
 
                           </div>
                       </div>
@@ -23,7 +23,7 @@
                           <input class="form-control   " type="text" [(ngModel)]="book.author" name="author" id="txt" required placeholder="Enter Author Name" 
                           formControlName = "author" [ngClass]="{'is-invalid':form.get('author').touched && form.get('author').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Author Name Is Mandatory and It Should Be String</div>
+                              <div>Please Enter Author Name</div>
 
                           </div>
                           
@@ -34,7 +34,7 @@
                         <input class="form-control   "  type="text " [(ngModel)]="book.genre" name="genre" id="txt " required placeholder="Enter Genre " 
                         formControlName = "genre" [ngClass]="{'is-invalid':form.get('genre').touched && form.get('genre').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Genre Is Mandatory and It Should Be String</div>
+                              <div>Please Enter The Genre</div>
 
                           </div>
                     </div>
@@ -44,7 +44,7 @@
                         <input class="form-control   " type="text" [(ngModel)]="book.publisher" name="publisher" id="txt" required placeholder="Enter Publisher Name"
                         formControlName = "publisher" [ngClass]="{'is-invalid':form.get('publisher').touched && form.get('publisher').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Publisher Name Is Mandatory and It Should Be String</div>
+                              <div>Please Enter The Publisher Name</div>
 
                           </div>
                     </div>
@@ -54,7 +54,7 @@
                         <input class="form-control   " type="text" [(ngModel)]="book.floor_no" name="floor_no" id="txt" required placeholder="Enter Floor_No" 
                         formControlName = "floor_no" [ngClass]="{'is-invalid':form.get('floor_no').touched && form.get('floor_no').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Floor Number have to Mention and It Should Be Number</div>
+                              <div>Please Enter Floor Number </div>
 
                           </div>
                         
@@ -65,10 +65,11 @@
                       <input class="form-control    " type="text " [(ngModel)]="book.shelf_no" name="shelf_no" id="txt " required placeholder="Enter Shelf_No "
                       formControlName = "shelf_no" [ngClass]="{'is-invalid':form.get('shelf_no').touched && form.get('shelf_no').invalid}"/>
                           <div class="invalid-feedback">
-                              <div>Shelf Number have to Mention and It Should Be Numner</div>
+                              <div>Please Enter Shelf Number</div>
+                            </div>
 
                           </div>
-                  </div>
+                  
                   
   
                      <div class="text-center">

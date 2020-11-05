@@ -25,6 +25,12 @@ export class UpdateBooksComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private booksService: BooksService) { }
 
   ngOnInit(): void {
+    
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
     this.title = this.route.snapshot.params['title'];
     console.log(this.title);
     let response =  this.booksService.searchBook(this.title);

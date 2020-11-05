@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Magazine } from '../magazine';
 import { MagazineService } from '../magazine.service';
 
 @Component({
@@ -9,40 +10,46 @@ import { MagazineService } from '../magazine.service';
 })
 export class UpdateMagazineComponent implements OnInit {
 
-  magazine : any;
-  Magazine = {
-   
-    id: 0,
-    floorno: 0,
-    shelfno:'',
-    name:'',
-    date : '',
-  };
-      
-  message : any;
-  name : String;
-  constructor(private router: Router, private route: ActivatedRoute, private magazineService: MagazineService) { }
+  id:number;
+  magazine:Magazine;
+  submitted=false;
 
-  ngOnInit(): void {
-    this.name = this.route.snapshot.params['name'];
-    console.log(this.name);
-    let response =  this.magazineService.searchMagazine(this.name);
-    response.subscribe(data => {
+  constructor(private route:ActivatedRoute,private router:Router,
+    private magazineService:MagazineService) { }
+
+  ngOnInit()  {
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
+    this.magazine=new Magazine();
+
+    this.id=this.route.snapshot.params['id'];
+    this.magazineService.getMagazine(this.id)
+    .subscribe(data => {
+      console.log(data)
       this.magazine = data;
-      console.log(this.magazine);
-    })
-  }
-  
-  public updateMagazine(){
-    console.log(this.magazine);
-    let response = this.magazineService.updateMagazine(this.magazine);
-    response.subscribe(data => {
-      this.message = data
-      this.router.navigate(['/magazines']);
-      
-    });
-   
-  
-  }
+    }, error => console.log(error));
+}
+
+updateMagazine() {
+  this.magazineService.updateMagazine(this.id, this.magazine)
+    .subscribe(data => {
+      console.log(data);
+      this.magazine = new Magazine();
+      this.gotoList();
+    }, error => console.log(error));
+}
+
+
+onSubmit() {
+  this.updateMagazine();
+  this.submitted=true;
+}
+
+gotoList() {
+  this.router.navigate(['/magazine']);
+}
 
 }

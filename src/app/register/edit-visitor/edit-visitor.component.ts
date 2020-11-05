@@ -22,6 +22,12 @@ export class EditVisitorComponent implements OnInit {
   constructor(private route:ActivatedRoute,private router:Router,private registerService:RegisterService) { }
 
   ngOnInit(): void {
+    
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
     this.id=this.route.snapshot.params['id'];
     this.register=new Register;
      

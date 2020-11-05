@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Newspaper } from '../newspaper';
 import { NewspaperService } from '../newspaper.service';
 
 @Component({
@@ -8,40 +9,48 @@ import { NewspaperService } from '../newspaper.service';
   styleUrls: ['./update-newspaper.component.css']
 })
 export class UpdateNewspaperComponent implements OnInit {
+  id:number;
+  newspaper:Newspaper;
+  submitted=false;
 
-  newspaper : any;
-  Newspaper = {
-   
-    id: 0,
-    floorno: 0,
-    shelfno:'',
-    name:'',
-    date : '',
-  };
-      
-  message : any;
-  name : String;
-  constructor(private router: Router, private route: ActivatedRoute, private newspaperService: NewspaperService) { }
+  constructor(private route:ActivatedRoute,private router:Router,
+    private newspaperService:NewspaperService) { }
 
-  ngOnInit(): void {
-    this.name = this.route.snapshot.params['name'];
-    console.log(this.name);
-    let response =  this.newspaperService.searchNewspaper(this.name);
-    response.subscribe(data => {
+  ngOnInit()  {
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
+    this.newspaper=new Newspaper();
+
+    this.id=this.route.snapshot.params['id'];
+    this.newspaperService.getNewspaper(this.id)
+    .subscribe(data => {
+      console.log(data)
       this.newspaper = data;
-      console.log(this.newspaper);
-    })
-  }
-  
-  public updateNewspaper(){
-    console.log(this.newspaper);
-    let response = this.newspaperService.updateNewspaper(this.newspaper);
-    response.subscribe(data => {
-      this.message = data
-      
-    });
-   
-   this.router.navigate(['/newspapers']);
-  }
+    }, error => console.log(error));
+}
+
+updateNewspaper() {
+  this.newspaperService.updateNewspaper(this.id, this.newspaper)
+    .subscribe(data => {
+      console.log(data);
+      this.newspaper = new Newspaper();
+      this.gotoList();
+    }, error => console.log(error));
+}
+
+
+onSubmit() {
+  this.updateNewspaper();
+  this.submitted=true;
+}
+
+gotoList() {
+  this.router.navigate(['/newspaper']);
+}
 
 }
+
+

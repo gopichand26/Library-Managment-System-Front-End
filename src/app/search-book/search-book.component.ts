@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Books } from '../Books.model';
 import { BooksService } from '../books.service';
@@ -22,10 +23,14 @@ export class SearchBookComponent implements OnInit {
   };
    title: string ;
 showBooksTable : boolean = false;
- constructor(private booksService: BooksService) { }
+ constructor(private booksService: BooksService,private router:Router) { }
 
- ngOnInit(): void {
- }
+ ngOnInit() {
+  if(!window.localStorage.getItem('token')) {
+    this.router.navigate(['login']);
+    return;
+  }
+}
 
  public searchBook(){
    this.showBooksTable = !this.showBooksTable;

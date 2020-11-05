@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div *ngIf="isTyped" class="text-danger text-center">
-  * All fields are required.
+  * Newspaper Name is required.
 </div>
 <div *ngIf="isNewsname" class="text-danger text-center">
   * Newspaper Name is required.
@@ -15,7 +15,7 @@
       <div class = "form">
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="text" class="form-control  " id="newsname" [(ngModel)]="newsname" name="newsname"><br>
+          <input type="text" class="form-control  " id="newsname" [(ngModel)]="newsname" name="newsname" placeholder="Newspaper Name"><br>
           <div class="text-center">
           <button type="button" class="btn btn-primary  " (click)="searchAllDate()">All Dates</button>
         </div>
@@ -28,7 +28,7 @@
             <input type="date" class="form-control  " id="newsdate" [(ngModel)]="newsdate" name="newsdate">
           </div>
           <div class="text-center">
-        <button type="submit" class="btn btn-primary  " >Search</button>
+        <button type="submit" class="btn btn-primary  " >specific date</button>
       </div>
       </form>
     </div>

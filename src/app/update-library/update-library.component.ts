@@ -23,6 +23,12 @@ export class UpdateLibraryComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private libraryService: LibraryService) { }
 
   ngOnInit(): void {
+    
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
     this.floor_no = this.route.snapshot.params['floor_no'];
     console.log(this.floor_no);
     let response =  this.libraryService.searchLibrary(this.floor_no);

@@ -25,6 +25,12 @@ export class BooksearchComponent implements OnInit {
   constructor(private bookService :BooksService,private router: Router, ) { }
 
   ngOnInit(): void {
+    
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+  
     this.isTyped=false
     this.onSubmit
 }

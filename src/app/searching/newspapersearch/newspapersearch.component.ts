@@ -20,6 +20,12 @@ export class NewspapersearchComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
     this.newspaperService.refreshNeeded$.subscribe(()=>{
 
       this.onSubmit();

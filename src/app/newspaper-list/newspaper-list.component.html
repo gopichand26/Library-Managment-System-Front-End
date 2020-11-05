@@ -6,33 +6,36 @@
       <h1 class="display-3   text-dark">Newspapers List</h1>
       <h2 style="margin: auto" class=" text-dark" > </h2>
       <button class="btn btn-success   btn-lg float-right" style="width:auto" routerLink="/add"> Add Newspaper</button>
-      <button class="btn btn-success  " style="width:auto" routerLink="/search-newspaper">Search Newspaper</button>
-
-      </div>   
-          
       
-        <table class="table table-striped  text-dark">
-        <thead>
-      <tr>
-      <th scope="col">Id</th>
-      <th scope="col">FloorNo</th>
-      <th scope="col">ShelfNo</th>
-      <th scope="col">Name</th>
-      <th scope="col">Date</th>
-      <th scope="col">Action</th>
-      </tr>
-      </thead>
-      <tbody>
-         <tr *ngFor="let newspaper of newspapers | async">
-            <td class="hidden">{{newspaper.id}}</td>
-            <td class="hidden">{{newspaper.floorno}}</td>
-            <td class="hidden">{{newspaper.shelfno}}</td>
-            <td class="hidden">{{newspaper.name}}</td>
-            <td class="hidden">{{newspaper.date | date:'yyyy-MM-dd'}}</td>
-            <td><button class="btn btn-info  "  (click)="updateNewspaper(newspaper.name)">Update</button></td>
-         </tr>
-       </tbody>
-      </table>
+      </div>   
+    <br>
+      
+      <div class="panel-body">
+        <table id="example" class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Floorno</th>
+              <th>Shelfno</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let newspaper of newspapers | async">
+               <td>{{newspaper.id}}</td>
+              <td>{{newspaper.floorno}}</td>
+              <td>{{newspaper.shelfno}}</td>
+              <td>{{newspaper.name}}</td>
+              <td>{{newspaper.date | date:'yyy-MM-dd'}}</td>
+              <td>
+                   <button (click)="updateNewspaper(newspaper.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </section>
 </div>
 </main>

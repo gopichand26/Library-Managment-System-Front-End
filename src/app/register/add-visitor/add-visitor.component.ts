@@ -14,7 +14,11 @@ export class AddVisitorComponent implements OnInit {
   submitted=false;
   constructor(private registerService:RegisterService,private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if(!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
   }
 onSubmit(){
   this.submitted = true;

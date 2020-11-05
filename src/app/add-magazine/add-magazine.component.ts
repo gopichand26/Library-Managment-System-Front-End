@@ -9,7 +9,7 @@ import { MagazineService } from '../magazine.service';
   templateUrl: './add-magazine.component.html',
   styleUrls: ['./add-magazine.component.css']
 })
-export class AddMagazineComponent  {
+export class AddMagazineComponent implements OnInit {
 
   form = new FormGroup({
     id : new FormControl('',Validators.required),
@@ -19,18 +19,41 @@ export class AddMagazineComponent  {
     date : new FormControl('',Validators.required)
  })
 
-  magazine : Magazine = new Magazine();
-  constructor(private router: Router, private magazineService: MagazineService) 
-     { }
+  magazine: Magazine = new Magazine();
+  submitted = false;
 
-     addMagazine(): void {
-      console.log(this.magazine)
-      let response = this.magazineService.addMagazine(this.magazine);
-      response.subscribe(data => {
-        alert("Magazine add successfully");
-        this.router.navigate(['/magazines']);
-      });
-      
-    };
+  constructor(private magazineService: MagazineService,
+    private router: Router) { }
 
+    ngOnInit() {
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    }
+
+  newMagazine(): void {
+    this.submitted = false;
+    this.magazine = new Magazine();
+  }
+
+  save() {
+    this.magazineService
+    .addMagazine(this.magazine).subscribe(data => console.log(data),
+     error => console.log(error)
+    );
+    
+      this.magazine = new Magazine();
+      this.gotoList();
+    
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();    
+  }
+
+  gotoList() {
+    this.router.navigate(['/magazine']);
+  }
 }

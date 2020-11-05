@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormsModule, FormGroup, NgForm, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { User } from 'src/app/model/user.model';
 import { uniqueUsernameValidator } from 'src/app/service/unique-username-validator.directive';
 import {ApiService} from "../../service/api.service";
 @Component({
@@ -11,6 +12,7 @@ import {ApiService} from "../../service/api.service";
 export class AddUserComponent implements OnInit {
   data;
   reactiveForm: FormGroup;
+  users: User[];
 
 /*   createForm() {
     this.reactiveForm = this.formBuilder.group({
@@ -30,8 +32,14 @@ export class AddUserComponent implements OnInit {
 
 
   ngOnInit() {
-   /*  this.apiService.getUsers().subscribe(); */
-
+    if(!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
+    this.apiService.getUsers()
+      .subscribe( data => {
+        this.users = data.result;
+      });
   }
 
 

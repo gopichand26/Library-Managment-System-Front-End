@@ -19,9 +19,14 @@ export class LibraryListComponent implements OnInit {
 
  
 
-  ngOnInit(){
-    this.reloadData();
-  }
+    ngOnInit() {
+      this.reloadData();
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    }
+    
   reloadData()
   {
     this.library=this.service.getLibrary();

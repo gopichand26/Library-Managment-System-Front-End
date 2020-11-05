@@ -1,38 +1,43 @@
 <app-navbar></app-navbar>
-<div class="position-relative">
-  <section class="section   section-shaped pb-250">
-    <div class="container py-lg-md d-flex">
-    <h1 class="display-3   text-dark">Magazines List</h1>
-    <h2 style="margin: auto" class=" text-dark" > </h2>
-    <button class="btn btn-success   btn-lg float-right" style="width:auto" routerLink="/add-magazine"> Add Magazine</button>
-    <button class="btn btn-success  " style="width:auto" routerLink="/search-magazine">Search Magazine</button>
-
-    </div>  
-   <!-- nav -->      
-  <table  class="table table-striped  text-dark">
-    <thead>
-    <tr>
+<main>
+  <div class="position-relative">
+    <section class="section   section-shaped pb-250">
+      <div class="container py-lg-md d-flex">
+      <h1 class="display-3   text-dark">Magazines List</h1>
+      <h2 style="margin: auto" class=" text-dark" > </h2>
+      <button class="btn btn-success   btn-lg float-right" style="width:auto" routerLink="/add-magazine"> Add Magazine</button>
       
-      <th scope="col">Id</th>
-      <th scope="col">FloorNo</th>
-      <th scope="col">ShelfNo</th>
-      <th scope="col">Name</th>
-      <th scope="col">Date</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-    <tbody >
-         <tr *ngFor="let magazine of magazines | async">
-            <td class="hidden">{{magazine.id}}</td>
-            <td class="hidden">{{magazine.floorno}}</td>
-            <td class="hidden">{{magazine.shelfno}}</td>
-            <td class="hidden">{{magazine.name}}</td>
-            <td class="hidden">{{magazine.date | date:'yyyy-MM-dd'}}</td>
-            <td><button class="btn btn-info  " style="margin-left: 10px" (click)="updateMagazine(magazine.name)">Update</button></td>
-         </tr>
-    </tbody>
-  </table>
- 
-  </section>
-</div>
+      </div> 
+      <br>  
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      
+    
+    <div class="panel-body">
+      <table id="example" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>FloorNo</th>
+            <th>ShelfNo</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let magazine of magazines | async">
+            <td>{{magazine.id}}</td>
+            <td>{{magazine.floorno}}</td>
+            <td>{{magazine.shelfno}}</td>
+            <td>{{magazine.name}}</td>
+            <td>{{magazine.date | date:'yyyy-MM-dd'}}</td>
+            <td>
+                <button (click)="updateMagazine(magazine.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 

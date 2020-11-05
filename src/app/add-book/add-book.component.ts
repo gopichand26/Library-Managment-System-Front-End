@@ -22,16 +22,19 @@ export class AddBookComponent {
   
   constructor(private router: Router, private booksService: BooksService) 
      { }
+     ngOnInit() {
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    }
 
      addBook(): void {
-      // this.studentService.createStudent(this.student)
-      //     .subscribe( data => {
-      //       alert("Student created successfully.");
-      //     });
+     
       console.log(this.book)
       let response = this.booksService.addBook(this.book);
       response.subscribe(data => {
-        alert("Book add successfully");
+        alert("Book added successfully");
         this.router.navigate(['/books']);
       });
       

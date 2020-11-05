@@ -19,8 +19,6 @@ import { RegisterHomeComponent } from './register/register-home/register-home.co
 import { EditVisitorComponent } from './register/edit-visitor/edit-visitor.component';
 import { AddVisitorComponent } from './register/add-visitor/add-visitor.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { SearchNewspaperComponent } from './search-newspaper/search-newspaper.component';
-import { SearchMagazineComponent } from './search-magazine/search-magazine.component';
 import { BooksearchComponent } from './searching/booksearch/booksearch.component';
 import { MagazinesearchComponent } from './searching/magazinesearch/magazinesearch.component';
 import { NewspapersearchComponent } from './searching/newspapersearch/newspapersearch.component';
@@ -37,14 +35,12 @@ const routes: Routes = [
   { path: 'home-page', component: HomePageComponent},
   { path: 'search', component: SearchComponent},
   { path: 'bnm', component: BnmComponent},
-  { path: 'newspapers', component: NewspaperListComponent },
+  { path: 'newspaper', component: NewspaperListComponent },
   { path: 'add', component: AddNewspaperComponent },
-  { path: 'update/:name', component: UpdateNewspaperComponent },
-  {path : 'search-newspaper' , component : SearchNewspaperComponent},
-  { path: 'magazines', component: MagazineListComponent },
+  { path: 'update/:id', component: UpdateNewspaperComponent },
+  { path: 'magazine', component: MagazineListComponent },
   { path: 'add-magazine', component: AddMagazineComponent },
-  { path: 'update-magazine/:name', component: UpdateMagazineComponent },
-  {path : "search-magazine" , component : SearchMagazineComponent},
+  { path: 'update-magazine/:id', component: UpdateMagazineComponent },
   { path: 'edit-user', component: EditUserComponent },
   {path : '', component : LoginComponent},
   {

@@ -6,4 +6,3 @@ export class Newspaper {
     date: Date;
     active: boolean;
 }
-

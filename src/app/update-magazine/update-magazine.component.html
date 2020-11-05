@@ -1,46 +1,54 @@
-<!-- <div style="text-align: center">
-    <h3>{{message}}</h3>
-</div> -->
 <app-navbar></app-navbar>
 <div class="position-relative">
-    <section class="section   section-shaped pb-250">
-      <div class=" container w-50 p-3 py-lg-md d-flex">
-        <h1 class="display-3   text-dark ">Update Magazine Data</h1>
+  <section class="section section-shaped pb-250">
+    <div class=" container w-50 p-3 py-lg-md d-flex">
+      <h1 class="display-3  text-dark ">Update the details of magazine  </h1>
+    </div>
+      <div class=" container w-50 p-3">
+          <div class = "text-dark form">
+<div [hidden]="submitted" >
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Id</label>
+      <input type="text" class="form-control" id="id" required [(ngModel)]="magazine.id" name="id">
+   </div>
+
+    <div class="form-group">
+      <label for="name">FloorNo</label>
+      <input type="text" class="form-control" id="floorno" required [(ngModel)]="magazine.floorno" name="floorno">
+    </div>
+
+    <div class="form-group">
+      <label for="name">ShelfNo</label>
+      <input type="text" class="form-control" id="shelfno" required [(ngModel)]="magazine.shelfno" name="shelfno">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="magazine.name" name="name" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Date</label>
+      <input type="text" class="form-control" id="date" required [(ngModel)]="magazine.date" name="date" readonly>
+    </div>
+  
+<div class="text-center">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+  </form>
+  <div [hidden]="!submitted">
+    <h4>You updated successfully!</h4>
+     <!--<button class="btn btn-success" (click)="newMagazine()">Add</button>--> 
+  </div>
+</div>
+
+
+
+
+          </div>
       </div>
-        <div class=" container w-50 p-3">
-  <div class = " text-dark form">
+  </section>
+</div>
 
-              <fieldset>
-
-                  <div class="form-group">
-                      <label for="id">Id</label>
-                      <input class="form-control  " type="text" [(ngModel)]="magazine.id" name="id" id="txt" required value="id"  readonly/>
-              
-                  </div>
-
-                  <div class="form-group">
-                      <label for="name">Name</label>
-                      <input class="form-control  " type="text" [(ngModel)]="magazine.name" name="name" id="txt "  required readonly/>
-
-                  </div>
-
-                  <div class="form-group ">
-                      <label for="date">Date</label>
-                      <input class="form-control  " required type="text " [(ngModel)]="magazine.date" name="date" id="txt " readonly />
-                  </div>
-
-                  <div class="form-group ">
-                      <label for="floorno ">FloorNo</label>
-                      <input class="form-control   " required type="text " [(ngModel)]="magazine.floorno " name="floorno" id="txt " placeholder="Enter floor no " />
-                  </div>
-
-                  <div class="form-group ">
-                      <label for="shelfno ">ShelfNo</label>
-                      <input class="form-control   " required type="text " [(ngModel)]="magazine.shelfno " name="shelfno" id="txt " placeholder="Enter shelf no " />
-                  </div>
-
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-success  " (click)="updateMagazine()">Update Magazine</button>
-                  </div>
-              </fieldset>
-         

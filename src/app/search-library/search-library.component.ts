@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LibraryService } from '../library.service';
 
 @Component({
@@ -19,10 +20,14 @@ export class SearchLibraryComponent implements OnInit {
   };
    floor_no : number ;
 showLibraryTable : boolean = false;
- constructor(private libraryService: LibraryService) { }
+ constructor(private libraryService: LibraryService, private router:Router) { }
 
- ngOnInit(): void {
- }
+ ngOnInit() {
+  if(!window.localStorage.getItem('token')) {
+    this.router.navigate(['login']);
+    return;
+  }
+}
 
  public searchLibrary(){
    this.showLibraryTable = !this.showLibraryTable;

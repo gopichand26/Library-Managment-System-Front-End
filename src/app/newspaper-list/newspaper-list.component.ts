@@ -10,25 +10,36 @@ import { NewspaperService } from '../newspaper.service';
   styleUrls: ['./newspaper-list.component.css']
 })
 export class NewspaperListComponent implements OnInit {
-
-  newspapers : Observable<Newspaper[]>;
-  message : any;
-
-  constructor(private service : NewspaperService,
-    private router: Router) { }
-
-  ngOnInit(){
-    this.reloadData();
-  }
-  reloadData()
-  {
-    this.newspapers=this.service.getNewspaper();
-  }
+  newspapers:Observable<Newspaper[]>;
 
   
-  updateNewspaper(name : String){
-    console.log(name);
-    this.router.navigate(['update',name])
+  constructor(private newspaperService: NewspaperService,
+    private router: Router) { 
+      setTimeout(function(){
+        $(function(){
+          $('#example').DataTable();
+      });
+      },2000);
+    }
+
+  ngOnInit(){
+    this.newspapers = this.newspaperService.getNewspaperList();
+    setTimeout(function(){
+      $(function(){
+        $('#example').DataTable();
+    });
+    },2000);
+
+      if(!window.localStorage.getItem('token')) {
+        this.router.navigate(['login']);
+        return;
+      }
+    
+  }
+ 
+  updateNewspaper(id : number){
+    this.router.navigate(['update', id]);
   }
 
+ 
 }
