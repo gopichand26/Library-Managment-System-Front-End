@@ -9,7 +9,7 @@ import { Register } from '../model/register.model';
   providedIn: 'root'
 })
 export class RegisterService {
-  public API_URL="http://localhost:8080/register"
+  public API_URL="http://localhost:8080/LMS/register"
   constructor(private http : HttpClient) { }
 
  getregister() : Observable<ApiResponse>{

@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class BooksService {
 
-  API_URL:string = "http://localhost:8080/";
+  API_URL:string = "http://localhost:8080/LMS/";
   
 
   constructor(private http : HttpClient) {  }

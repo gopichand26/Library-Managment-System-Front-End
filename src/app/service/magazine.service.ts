@@ -7,7 +7,7 @@ import { Magazine } from '../model/magazine.model';
   providedIn: 'root'
 })
 export class MagazineService {
-  private baseUrl = 'http://localhost:8080/api/magazines'; 
+  private baseUrl = 'http://localhost:8080/LMS/api/magazines'; 
 
   constructor(private http:HttpClient) { }
 

@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class NewspaperService {
-  private baseUrl = 'http://localhost:8080/api/newspapers'; 
+  private baseUrl = 'http://localhost:8080/LMS/api/newspapers'; 
   constructor(private http:HttpClient) { }
 
   private _refreshNeeded$ = new Subject<void>();

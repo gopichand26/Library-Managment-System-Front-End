@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class LibraryService {
 
-  API_URL:string = "http://localhost:8080/api/";
+  API_URL:string = "http://localhost:8080/LMS/api/";
   
 
   constructor(private httpClient : HttpClient) {  }

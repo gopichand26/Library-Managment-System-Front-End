@@ -8,12 +8,12 @@ import {ApiResponse} from "../model/api.response";
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/users/';
+  baseUrl: string = 'http://localhost:8080/LMS/users/';
 
 
 
   login(loginPayload) : Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
+    return this.http.post<ApiResponse>('http://localhost:8080/LMS/' + 'token/generate-token', loginPayload);
   }
 
   getUsers() : Observable<ApiResponse> {

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NewspaperService {
-  private baseUrl = 'http://localhost:8080/api/newspapers'; 
+  private baseUrl = 'http://localhost:8080/LMS/api/newspapers'; 
 
   constructor(private http:HttpClient) { }
   getNewspaper(id: number): Observable<any> {
